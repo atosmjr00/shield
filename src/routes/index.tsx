@@ -8,7 +8,7 @@ import { useFilters } from "@/lib/filters";
 import { consolidatedPnl } from "@/lib/calc";
 import { money } from "@/lib/format";
 
-export const Route = createFileRoute("/")({ head: () => ({ meta: [{ title: "Início — Ledgerline" }] }), component: Home });
+export const Route = createFileRoute("/")({ head: () => ({ meta: [{ title: "Nexora — Marketing Operations" }] }), component: Home });
 
 type Tool = {
   title: string;
@@ -25,7 +25,7 @@ const groups: { id: string; title: string; subtitle: string; icon: typeof Wallet
     tools: [
       { title: "Campanhas", description: "Criar, pausar, editar e acompanhar campanhas do Meta Ads.", icon: Layers3, state: "planned", note: "Meta Ads" },
       { title: "Contas de anúncios", description: "Conectar contas, conferir acesso e alternar entre operações.", icon: Blocks, state: "planned", note: "Contas separadas" },
-      { title: "Comprar uma conta", description: "Encontrar ofertas, conferir condições e acompanhar pedidos.", icon: ShoppingBag, state: "planned", note: "Marketplace" },
+      { title: "Marketplace de ativos", description: "Gerenciar ofertas e processos de transferência autorizados.", icon: ShoppingBag, state: "planned", note: "Em planejamento" },
     ],
   },
   {
@@ -48,12 +48,19 @@ const groups: { id: string; title: string; subtitle: string; icon: typeof Wallet
 function Home() {
   const f = useFilters();
   const pnl = consolidatedPnl(f.brandIds, f.period, f.costRules);
-  return <div className="mx-auto w-full max-w-6xl space-y-9 py-3 sm:py-7">
+  const roas = pnl.spend > 0 ? pnl.approved / pnl.spend : 0;
+  const metrics = [
+    { label: "Receita aprovada", value: money(pnl.approved), note: "Vendas aprovadas no período", icon: Banknote },
+    { label: "Investimento em mídia", value: money(pnl.spend), note: "Gasto de tráfego estimado", icon: RadioTower },
+    { label: "ROAS", value: roas.toLocaleString("pt-BR", { maximumFractionDigits: 2 }) + "x", note: "Receita aprovada ÷ investimento", icon: GitBranch },
+    { label: "Lucro operacional", value: money(pnl.operatingProfit), note: "Estimativa após custos cadastrados", icon: BadgeDollarSign },
+  ];
+  return <div className="command-page mx-auto w-full max-w-[1440px] space-y-7 py-3 sm:py-6">
     <header className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
       <div className="space-y-3">
-        <div className="flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground"><WandSparkles className="h-4 w-4 text-blue-300" /> Centro de operações</div>
-        <h1 className="max-w-2xl text-3xl font-semibold tracking-[-0.05em] sm:text-5xl">Sua operação inteira. <span className="text-muted-foreground">Um caminho claro.</span></h1>
-        <p className="max-w-xl text-sm leading-6 text-muted-foreground sm:text-base">Anúncios, dinheiro e conversões conectados — cada coisa no seu lugar, sem transformar tudo em um painel interminável.</p>
+        <div className="flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground"><WandSparkles className="h-4 w-4 text-blue-300" /> NEXORA · CENTRO DE OPERAÇÕES</div>
+        <h1 className="max-w-2xl text-3xl font-semibold tracking-[-0.05em] sm:text-5xl">Tudo conectado. <span className="text-muted-foreground">Cada decisão com contexto.</span></h1>
+        <p className="max-w-xl text-sm leading-6 text-muted-foreground sm:text-base">Uma central de comando para suas marcas, contas de anúncios, aquisição e resultado financeiro. Menos abas. Mais clareza sobre a operação.</p>
       </div>
       <Link to="/lucro" className="group flex shrink-0 items-center gap-3 rounded-xl border border-blue-300/20 bg-blue-300/[0.06] px-4 py-3 transition hover:border-blue-300/40">
         <div className="grid h-9 w-9 place-items-center rounded-lg bg-blue-300/10 text-blue-200"><Wallet className="h-4 w-4" /></div>
@@ -62,8 +69,29 @@ function Home() {
       </Link>
     </header>
 
+    <section className="profit-stage relative overflow-hidden rounded-2xl border border-blue-400/15 p-4 sm:p-5">
+      <div className="profit-grid absolute inset-0 opacity-60" />
+      <div className="relative grid gap-px overflow-hidden rounded-xl border border-white/10 bg-white/10 sm:grid-cols-2 xl:grid-cols-4">
+        {metrics.map((metric) => {
+          const Icon = metric.icon;
+          return <div key={metric.label} className="bg-[#0c1424]/90 p-4 sm:p-5">
+            <div className="flex items-center justify-between gap-3">
+              <span className="text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-400">{metric.label}</span>
+              <Icon className="h-4 w-4 text-blue-300" />
+            </div>
+            <div className="num mt-3 text-2xl font-semibold tracking-tight text-white sm:text-[27px]">{metric.value}</div>
+            <p className="mt-2 text-[11px] leading-4 text-slate-400">{metric.note}</p>
+          </div>;
+        })}
+      </div>
+      <div className="relative mt-3 flex flex-wrap items-center justify-between gap-2 text-[10px] text-slate-400">
+        <span>Resumo consolidado · {f.period} dias · Todas as métricas são demonstrativas</span>
+        <Link to="/lucro" className="inline-flex items-center gap-1.5 font-medium text-blue-200 transition hover:text-white">Abrir demonstrativo financeiro <ArrowRight className="h-3 w-3" /></Link>
+      </div>
+    </section>
+
     <section className="relative space-y-4">
-      <div className="flex items-center justify-between gap-3"><div><h2 className="text-sm font-semibold">Mapa de ferramentas</h2><p className="mt-1 text-xs text-muted-foreground">Três áreas conectadas. Você entra direto na tarefa.</p></div><div className="hidden items-center gap-2 text-[10px] text-muted-foreground sm:flex"><span className="h-1.5 w-1.5 rounded-full bg-blue-300" /> Disponível <span className="ml-2 h-1.5 w-1.5 rounded-full bg-muted-foreground/50" /> Planejado</div></div>
+      <div className="flex items-center justify-between gap-3"><div><h2 className="text-sm font-semibold">Áreas da plataforma</h2><p className="mt-1 text-xs text-muted-foreground">Uma estrutura modular para operar múltiplas marcas, contas e canais.</p></div><div className="hidden items-center gap-2 text-[10px] text-muted-foreground sm:flex"><span className="h-1.5 w-1.5 rounded-full bg-blue-300" /> Disponível <span className="ml-2 h-1.5 w-1.5 rounded-full bg-muted-foreground/50" /> Planejado</div></div>
       <div className="grid gap-4 xl:grid-cols-3">
         {groups.map((group, index) => {
           const GroupIcon = group.icon;
@@ -88,6 +116,6 @@ function Home() {
       </div>
       <div className="flex items-start gap-2 rounded-xl border border-border/60 px-3 py-3 text-[11px] leading-5 text-muted-foreground"><ArrowDownRight className="mt-0.5 h-3.5 w-3.5 shrink-0" /> As ferramentas vão se conectar por dados compartilhados, mas continuarão separadas por tarefa. Contas, saldo de mídia e lucro não serão tratados como a mesma coisa.</div>
     </section>
-    <footer className="flex flex-wrap items-center justify-between gap-2 border-t border-border/60 pt-4 text-[10px] text-muted-foreground"><span>Ledgerline · Ambiente demonstrativo</span><span>Os dados exibidos ainda são fictícios. Meta Ads e movimentações reais não estão conectados.</span></footer>
+    <footer className="flex flex-wrap items-center justify-between gap-2 border-t border-border/60 pt-4 text-[10px] text-muted-foreground"><span>NEXORA · MARKETING OPERATIONS</span><span>Os dados exibidos ainda são fictícios. Meta Ads e movimentações reais não estão conectados.</span></footer>
   </div>;
 }
