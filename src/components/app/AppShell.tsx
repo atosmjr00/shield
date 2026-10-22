@@ -1,7 +1,7 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import {
   Building2, Cable, ChevronsLeft, ChevronsRight, CircleDollarSign, GitBranch, LayoutDashboard,
-  Megaphone, Menu, Route as RouteIcon, Search, Settings, Tags,
+  Menu, Route as RouteIcon, Search, ScanSearch,
 } from "lucide-react";
 import { useState, type ReactNode } from "react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -15,14 +15,11 @@ import type { PeriodDays } from "@/lib/types";
 import { toast } from "sonner";
 
 const nav = [
-  { to: "/", label: "Overview", icon: LayoutDashboard },
-  { to: "/jornada", label: "Jornada do Lead", icon: RouteIcon },
-  { to: "/atribuicao", label: "Atribuição", icon: GitBranch },
-  { to: "/lucro", label: "Lucro Real", icon: CircleDollarSign },
-  { to: "/contas", label: "Contas de Anúncios", icon: Megaphone },
-  { to: "/marcas", label: "Marcas e Produtos", icon: Tags },
-  { to: "/integracoes", label: "Integrações", icon: Cable },
-  { to: "/configuracoes", label: "Configurações", icon: Settings },
+  { to: "/", label: "Início", icon: LayoutDashboard },
+  { to: "/lucro", label: "Lucro real", icon: CircleDollarSign },
+  { label: "Jornada do lead", icon: RouteIcon, disabled: true },
+  { label: "Atribuição", icon: GitBranch, disabled: true },
+  { label: "Diagnóstico de tracking", icon: ScanSearch, disabled: true },
 ] as const;
 
 function NavList({ collapsed, onNavigate }: { collapsed: boolean; onNavigate?: () => void }) {
@@ -30,15 +27,14 @@ function NavList({ collapsed, onNavigate }: { collapsed: boolean; onNavigate?: (
   return (
     <nav className="flex flex-col gap-0.5 px-2">
       {nav.map((n) => {
-        const active = n.to === "/" ? path === "/" : path.startsWith(n.to);
-        return (
-          <Link key={n.to} to={n.to} onClick={onNavigate} title={collapsed ? n.label : undefined}
-            className={cn("flex h-9 items-center gap-3 rounded-md px-2.5 text-sm transition-colors",
-              active ? "bg-sidebar-accent text-sidebar-accent-foreground" : "text-sidebar-foreground/70 hover:bg-sidebar-accent/60 hover:text-sidebar-accent-foreground")}>
-            <n.icon className={cn("h-4 w-4 shrink-0", active && "text-primary")} />
-            {!collapsed && <span className="truncate">{n.label}</span>}
-          </Link>
-        );
+        const active = "to" in n && (n.to === "/" ? path === "/" : path.startsWith(n.to));
+        const classes = cn("flex h-9 items-center gap-3 rounded-md px-2.5 text-sm transition-colors",
+          active ? "bg-sidebar-accent text-sidebar-accent-foreground" : "text-sidebar-foreground/70 hover:bg-sidebar-accent/60 hover:text-sidebar-accent-foreground",
+          "disabled" in n && n.disabled && "cursor-not-allowed opacity-40");
+        const contents = <><n.icon className={cn("h-4 w-4 shrink-0", active && "text-primary")} />{!collapsed && <span className="truncate">{n.label}</span>}</>;
+        return "to" in n
+          ? <Link key={n.label} to={n.to} onClick={onNavigate} title={collapsed ? n.label : undefined} className={classes}>{contents}</Link>
+          : <div key={n.label} title={collapsed ? n.label : undefined} aria-disabled="true" className={classes}>{contents}</div>;
       })}
     </nav>
   );
