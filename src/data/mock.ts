@@ -78,7 +78,7 @@ export const dailyMetrics: DailyMetric[] = (() => {
   const out: DailyMetric[] = [];
   brands.forEach((b, bi) => {
     const r = rng(100 + bi * 17);
-    const p = brandProfile[b.id];
+    const p = brandProfile[b.id]!;
     for (let i = 179; i >= 0; i--) {
       const date = addDays(TODAY, -i);
       const t = 179 - i;
@@ -140,7 +140,7 @@ export const campaigns: Campaign[] = campaignSeeds.map(([id, brandId, accountId,
   const acc = adAccounts.find((a) => a.id === accountId)!;
   return {
     id, brandId, accountId, platform: acc.platform, name,
-    adSet: ["Interesses amplos", "Público quente", "Palavra-chave exata", "Lookalike 3%"][i % 4],
+    adSet: ["Interesses amplos", "Público quente", "Palavra-chave exata", "Lookalike 3%"][i % 4]!,
     ad: `AD-${String(100 + i * 7)} ${["Vídeo UGC", "Carrossel", "Texto RSA", "Estático"][i % 4]}`,
     channel, source: acc.platform === "meta" ? "facebook" : acc.platform === "google" ? "google" : "tiktok",
     medium, utmCampaign: name.toLowerCase().normalize("NFD").replace(/[^a-z0-9]+/g, "_").replace(/^_|_$/g, ""),
@@ -149,7 +149,7 @@ export const campaigns: Campaign[] = campaignSeeds.map(([id, brandId, accountId,
 });
 
 function ev(id: string, at: string | null, type: LeadEvent["type"], label: string, source: string, verification: LeadEvent["verification"], detail?: string): LeadEvent {
-  return { id, at, type, label, source, verification, detail };
+  return detail === undefined ? { id, at, type, label, source, verification } : { id, at, type, label, source, verification, detail };
 }
 
 export const leads: Lead[] = (() => {
@@ -157,17 +157,17 @@ export const leads: Lead[] = (() => {
   const list: Lead[] = [];
   const pages = ["/oferta", "/webinar", "/produto/serum", "/lp/12-semanas", "/colecao/linho", "/assine"];
   for (let i = 0; i < 64; i++) {
-    const c = campaigns[Math.floor(r() * campaigns.length)];
+    const c = campaigns[Math.floor(r() * campaigns.length)]!;
     const known = r() > 0.18;
     const daysAgo = Math.floor(r() * 28);
     const first = addDays(TODAY, -daysAgo - 3) + `T${String(8 + Math.floor(r() * 12)).padStart(2, "0")}:${String(Math.floor(r() * 60)).padStart(2, "0")}:00Z`;
     const roll = r();
     const status: Lead["status"] = roll > 0.62 ? (roll > 0.93 ? "refunded" : "purchased") : roll > 0.42 ? "checkout" : "lead";
-    const prod = products.filter((p) => p.brandId === c.brandId)[0];
+    const prod = products.filter((p) => p.brandId === c.brandId)[0]!;
     const value = status === "purchased" || status === "refunded" ? prod.price : null;
     const base = new Date(first).getTime();
     const t = (m: number) => new Date(base + m * 60000).toISOString();
-    const lp = known ? pages[i % pages.length] : null;
+    const lp = known ? pages[i % pages.length]! : null;
     const events: LeadEvent[] = [];
     if (known) {
       events.push(ev(`${i}-1`, t(0), "first_visit", "Primeiro acesso registrado", "Pixel do site", "observed", lp ?? undefined));

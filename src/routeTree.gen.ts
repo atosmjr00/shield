@@ -10,33 +10,128 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AtribuicaoRouteImport } from './routes/atribuicao'
+import { Route as ConfiguracoesRouteImport } from './routes/configuracoes'
+import { Route as ContasRouteImport } from './routes/contas'
+import { Route as IntegracoesRouteImport } from './routes/integracoes'
+import { Route as JornadaRouteImport } from './routes/jornada'
+import { Route as LucroRouteImport } from './routes/lucro'
+import { Route as MarcasRouteImport } from './routes/marcas'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AtribuicaoRoute = AtribuicaoRouteImport.update({
+  id: '/atribuicao',
+  path: '/atribuicao',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConfiguracoesRoute = ConfiguracoesRouteImport.update({
+  id: '/configuracoes',
+  path: '/configuracoes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContasRoute = ContasRouteImport.update({
+  id: '/contas',
+  path: '/contas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IntegracoesRoute = IntegracoesRouteImport.update({
+  id: '/integracoes',
+  path: '/integracoes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JornadaRoute = JornadaRouteImport.update({
+  id: '/jornada',
+  path: '/jornada',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LucroRoute = LucroRouteImport.update({
+  id: '/lucro',
+  path: '/lucro',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MarcasRoute = MarcasRouteImport.update({
+  id: '/marcas',
+  path: '/marcas',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/atribuicao': typeof AtribuicaoRoute
+  '/configuracoes': typeof ConfiguracoesRoute
+  '/contas': typeof ContasRoute
+  '/integracoes': typeof IntegracoesRoute
+  '/jornada': typeof JornadaRoute
+  '/lucro': typeof LucroRoute
+  '/marcas': typeof MarcasRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/atribuicao': typeof AtribuicaoRoute
+  '/configuracoes': typeof ConfiguracoesRoute
+  '/contas': typeof ContasRoute
+  '/integracoes': typeof IntegracoesRoute
+  '/jornada': typeof JornadaRoute
+  '/lucro': typeof LucroRoute
+  '/marcas': typeof MarcasRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/atribuicao': typeof AtribuicaoRoute
+  '/configuracoes': typeof ConfiguracoesRoute
+  '/contas': typeof ContasRoute
+  '/integracoes': typeof IntegracoesRoute
+  '/jornada': typeof JornadaRoute
+  '/lucro': typeof LucroRoute
+  '/marcas': typeof MarcasRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/atribuicao'
+    | '/configuracoes'
+    | '/contas'
+    | '/integracoes'
+    | '/jornada'
+    | '/lucro'
+    | '/marcas'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/atribuicao'
+    | '/configuracoes'
+    | '/contas'
+    | '/integracoes'
+    | '/jornada'
+    | '/lucro'
+    | '/marcas'
+  id:
+    | '__root__'
+    | '/'
+    | '/atribuicao'
+    | '/configuracoes'
+    | '/contas'
+    | '/integracoes'
+    | '/jornada'
+    | '/lucro'
+    | '/marcas'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AtribuicaoRoute: typeof AtribuicaoRoute
+  ConfiguracoesRoute: typeof ConfiguracoesRoute
+  ContasRoute: typeof ContasRoute
+  IntegracoesRoute: typeof IntegracoesRoute
+  JornadaRoute: typeof JornadaRoute
+  LucroRoute: typeof LucroRoute
+  MarcasRoute: typeof MarcasRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +143,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/atribuicao': {
+      id: '/atribuicao'
+      path: '/atribuicao'
+      fullPath: '/atribuicao'
+      preLoaderRoute: typeof AtribuicaoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/configuracoes': {
+      id: '/configuracoes'
+      path: '/configuracoes'
+      fullPath: '/configuracoes'
+      preLoaderRoute: typeof ConfiguracoesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contas': {
+      id: '/contas'
+      path: '/contas'
+      fullPath: '/contas'
+      preLoaderRoute: typeof ContasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/integracoes': {
+      id: '/integracoes'
+      path: '/integracoes'
+      fullPath: '/integracoes'
+      preLoaderRoute: typeof IntegracoesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/jornada': {
+      id: '/jornada'
+      path: '/jornada'
+      fullPath: '/jornada'
+      preLoaderRoute: typeof JornadaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lucro': {
+      id: '/lucro'
+      path: '/lucro'
+      fullPath: '/lucro'
+      preLoaderRoute: typeof LucroRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/marcas': {
+      id: '/marcas'
+      path: '/marcas'
+      fullPath: '/marcas'
+      preLoaderRoute: typeof MarcasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AtribuicaoRoute: AtribuicaoRoute,
+  ConfiguracoesRoute: ConfiguracoesRoute,
+  ContasRoute: ContasRoute,
+  IntegracoesRoute: IntegracoesRoute,
+  JornadaRoute: JornadaRoute,
+  LucroRoute: LucroRoute,
+  MarcasRoute: MarcasRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
