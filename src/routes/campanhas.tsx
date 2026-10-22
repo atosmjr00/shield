@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Activity, ChevronDown, CircleHelp, Filter, Layers3, Pause, Play, Search, SlidersHorizontal, Sparkles, Target, TrendingUp, Wallet } from "lucide-react";
 import { useMemo, useState } from "react";
-import { campaigns, brands, adAccounts } from "@/data/mock";
+import { brands, adAccounts } from "@/data/mock";
 import { campaignResults } from "@/lib/calc";
 import { money } from "@/lib/format";
 import { useFilters } from "@/lib/filters";
