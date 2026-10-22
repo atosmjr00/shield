@@ -51,19 +51,19 @@ function Home() {
   return <div className="mx-auto w-full max-w-6xl space-y-9 py-3 sm:py-7">
     <header className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
       <div className="space-y-3">
-        <div className="flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground"><WandSparkles className="h-4 w-4 text-emerald-300" /> Centro de operações</div>
+        <div className="flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground"><WandSparkles className="h-4 w-4 text-blue-300" /> Centro de operações</div>
         <h1 className="max-w-2xl text-3xl font-semibold tracking-[-0.05em] sm:text-5xl">Sua operação inteira. <span className="text-muted-foreground">Um caminho claro.</span></h1>
         <p className="max-w-xl text-sm leading-6 text-muted-foreground sm:text-base">Anúncios, dinheiro e conversões conectados — cada coisa no seu lugar, sem transformar tudo em um painel interminável.</p>
       </div>
-      <Link to="/lucro" className="group flex shrink-0 items-center gap-3 rounded-xl border border-emerald-300/20 bg-emerald-300/[0.06] px-4 py-3 transition hover:border-emerald-300/40">
-        <div className="grid h-9 w-9 place-items-center rounded-lg bg-emerald-300/10 text-emerald-200"><Wallet className="h-4 w-4" /></div>
+      <Link to="/lucro" className="group flex shrink-0 items-center gap-3 rounded-xl border border-blue-300/20 bg-blue-300/[0.06] px-4 py-3 transition hover:border-blue-300/40">
+        <div className="grid h-9 w-9 place-items-center rounded-lg bg-blue-300/10 text-blue-200"><Wallet className="h-4 w-4" /></div>
         <div><div className="text-[10px] uppercase tracking-wider text-muted-foreground">Lucro estimado · {f.period} dias</div><div className="mt-0.5 text-lg font-semibold tracking-tight">{money(pnl.operatingProfit)}</div></div>
         <ArrowRight className="ml-1 h-4 w-4 text-muted-foreground transition group-hover:translate-x-0.5" />
       </Link>
     </header>
 
     <section className="relative space-y-4">
-      <div className="flex items-center justify-between gap-3"><div><h2 className="text-sm font-semibold">Mapa de ferramentas</h2><p className="mt-1 text-xs text-muted-foreground">Três áreas conectadas. Você entra direto na tarefa.</p></div><div className="hidden items-center gap-2 text-[10px] text-muted-foreground sm:flex"><span className="h-1.5 w-1.5 rounded-full bg-emerald-300" /> Disponível <span className="ml-2 h-1.5 w-1.5 rounded-full bg-muted-foreground/50" /> Planejado</div></div>
+      <div className="flex items-center justify-between gap-3"><div><h2 className="text-sm font-semibold">Mapa de ferramentas</h2><p className="mt-1 text-xs text-muted-foreground">Três áreas conectadas. Você entra direto na tarefa.</p></div><div className="hidden items-center gap-2 text-[10px] text-muted-foreground sm:flex"><span className="h-1.5 w-1.5 rounded-full bg-blue-300" /> Disponível <span className="ml-2 h-1.5 w-1.5 rounded-full bg-muted-foreground/50" /> Planejado</div></div>
       <div className="grid gap-4 xl:grid-cols-3">
         {groups.map((group, index) => {
           const GroupIcon = group.icon;
@@ -77,9 +77,9 @@ function Home() {
               <div className="absolute bottom-5 left-[17px] top-5 w-px bg-border/80" />
               {group.tools.map((tool) => {
                 const Icon = tool.icon;
-                const inner = <><div className="relative z-[1] grid h-8 w-8 shrink-0 place-items-center rounded-lg border border-border bg-background text-muted-foreground transition group-hover:text-foreground">{tool.state === "available" ? <Icon className="h-4 w-4" /> : <Icon className="h-4 w-4" />}</div><div className="min-w-0 flex-1 py-0.5"><div className="flex flex-wrap items-center gap-2"><span className="text-[13px] font-medium">{tool.title}</span>{tool.state === "available" ? <CheckCircle2 className="h-3.5 w-3.5 text-emerald-300" /> : <span className="rounded bg-secondary px-1.5 py-0.5 text-[9px] uppercase tracking-wide text-muted-foreground">Planejado</span>}</div><p className="mt-1 text-[11px] leading-[1.45] text-muted-foreground">{tool.description}</p>{tool.note && <p className="mt-1.5 text-[10px] text-muted-foreground/70">{tool.note}</p>}</div>{tool.state === "available" ? <ArrowRight className="mt-1 h-3.5 w-3.5 shrink-0 text-muted-foreground transition group-hover:translate-x-0.5" /> : <CircleDot className="mt-1 h-3 w-3 shrink-0 text-muted-foreground/50" />}</>;
+                const inner = <><div className="relative z-[1] grid h-8 w-8 shrink-0 place-items-center rounded-lg border border-border bg-background text-muted-foreground transition group-hover:text-foreground">{tool.state === "available" ? <Icon className="h-4 w-4" /> : <Icon className="h-4 w-4" />}</div><div className="min-w-0 flex-1 py-0.5"><div className="flex flex-wrap items-center gap-2"><span className="text-[13px] font-medium">{tool.title}</span>{tool.state === "available" ? <CheckCircle2 className="h-3.5 w-3.5 text-blue-300" /> : <span className="rounded bg-secondary px-1.5 py-0.5 text-[9px] uppercase tracking-wide text-muted-foreground">Planejado</span>}</div><p className="mt-1 text-[11px] leading-[1.45] text-muted-foreground">{tool.description}</p>{tool.note && <p className="mt-1.5 text-[10px] text-muted-foreground/70">{tool.note}</p>}</div>{tool.state === "available" ? <ArrowRight className="mt-1 h-3.5 w-3.5 shrink-0 text-muted-foreground transition group-hover:translate-x-0.5" /> : <CircleDot className="mt-1 h-3 w-3 shrink-0 text-muted-foreground/50" />}</>;
                 return tool.state === "available" && tool.to
-                  ? <Link key={tool.title} to={tool.to} className="group relative flex min-h-[94px] items-start gap-3 rounded-xl border border-emerald-300/15 bg-emerald-300/[0.035] p-3 transition hover:border-emerald-300/35 hover:bg-emerald-300/[0.06]">{inner}</Link>
+                  ? <Link key={tool.title} to={tool.to} className="group relative flex min-h-[94px] items-start gap-3 rounded-xl border border-blue-300/15 bg-blue-300/[0.035] p-3 transition hover:border-blue-300/35 hover:bg-blue-300/[0.06]">{inner}</Link>
                   : <div key={tool.title} aria-disabled="true" className="relative flex min-h-[94px] items-start gap-3 rounded-xl border border-border/60 bg-background/30 p-3 opacity-80">{inner}</div>;
               })}
             </div>
