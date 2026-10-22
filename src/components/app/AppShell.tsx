@@ -16,7 +16,7 @@ import { toast } from "sonner";
 
 const navGroups = [
   { label: "ANÚNCIOS", items: [
-    { label: "Campanhas", icon: RadioTower, disabled: true },
+    { to: "/campanhas", label: "Campanhas", icon: RadioTower },
     { to: "/contas", label: "Contas de anúncios", icon: Building2 },
     { label: "Comprar uma conta", icon: ShoppingBag, disabled: true },
   ] },
