@@ -14,28 +14,46 @@ import { cn } from "@/lib/utils";
 import type { PeriodDays } from "@/lib/types";
 import { toast } from "sonner";
 
-const nav = [
-  { to: "/", label: "Início", icon: LayoutDashboard },
-  { to: "/lucro", label: "Lucro real", icon: CircleDollarSign },
-  { label: "Jornada do lead", icon: RouteIcon, disabled: true },
-  { label: "Atribuição", icon: GitBranch, disabled: true },
-  { label: "Diagnóstico de tracking", icon: ScanSearch, disabled: true },
+const navGroups = [
+  { label: "ANÚNCIOS", items: [
+    { label: "Campanhas", icon: RadioTower, disabled: true },
+    { to: "/contas", label: "Contas de anúncios", icon: Building2 },
+    { label: "Comprar uma conta", icon: ShoppingBag, disabled: true },
+  ] },
+  { label: "FINANCEIRO", items: [
+    { to: "/lucro", label: "Lucro real", icon: CircleDollarSign },
+    { label: "Saldo de mídia", icon: Wallet, disabled: true },
+  ] },
+  { label: "INTELIGÊNCIA", items: [
+    { to: "/jornada", label: "Jornada do lead", icon: RouteIcon },
+    { to: "/atribuicao", label: "Atribuição", icon: GitBranch },
+    { label: "Diagnóstico de tracking", icon: ScanSearch, disabled: true },
+  ] },
+  { label: "SISTEMA", items: [
+    { to: "/integracoes", label: "Integrações", icon: Blocks },
+  ] },
 ] as const;
 
 function NavList({ collapsed, onNavigate }: { collapsed: boolean; onNavigate?: () => void }) {
   const path = useRouterState({ select: (s) => s.location.pathname });
   return (
-    <nav className="flex flex-col gap-0.5 px-2">
-      {nav.map((n) => {
-        const active = "to" in n && (n.to === "/" ? path === "/" : path.startsWith(n.to));
-        const classes = cn("flex h-9 items-center gap-3 rounded-md px-2.5 text-sm transition-colors",
-          active ? "bg-sidebar-accent text-sidebar-accent-foreground" : "text-sidebar-foreground/70 hover:bg-sidebar-accent/60 hover:text-sidebar-accent-foreground",
-          "disabled" in n && n.disabled && "cursor-not-allowed opacity-40");
-        const contents = <><n.icon className={cn("h-4 w-4 shrink-0", active && "text-primary")} />{!collapsed && <span className="truncate">{n.label}</span>}</>;
-        return "to" in n
-          ? <Link key={n.label} to={n.to} onClick={onNavigate} title={collapsed ? n.label : undefined} className={classes}>{contents}</Link>
-          : <div key={n.label} title={collapsed ? n.label : undefined} aria-disabled="true" className={classes}>{contents}</div>;
-      })}
+    <nav className="flex flex-col gap-4 px-2">
+      {navGroups.map((group) => (
+        <section key={group.label} className="space-y-1">
+          {!collapsed && <div className="px-2.5 pb-1 pt-1 text-[9px] font-semibold tracking-[0.16em] text-sidebar-foreground/40">{group.label}</div>}
+          {group.items.map((n) => {
+            const active = "to" in n && n.to && (n.to === "/" ? path === "/" : path.startsWith(n.to));
+            const disabled = "disabled" in n && n.disabled;
+            const classes = cn("flex h-9 items-center gap-3 rounded-md px-2.5 text-sm transition-colors",
+              active ? "bg-sidebar-accent text-sidebar-accent-foreground" : "text-sidebar-foreground/70 hover:bg-sidebar-accent/60 hover:text-sidebar-accent-foreground",
+              disabled && "cursor-not-allowed opacity-40");
+            const contents = <><n.icon className={cn("h-4 w-4 shrink-0", active && "text-primary")} />{!collapsed && <span className="truncate">{n.label}</span>}</>;
+            return "to" in n && n.to
+              ? <Link key={n.label} to={n.to} onClick={onNavigate} title={collapsed ? n.label : undefined} className={classes}>{contents}</Link>
+              : <div key={n.label} title={collapsed ? n.label : undefined} aria-disabled="true" className={classes}>{contents}</div>;
+          })}
+        </section>
+      ))}
     </nav>
   );
 }
