@@ -1,10 +1,10 @@
 import { useMemo, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { Activity, ArrowDownRight, ArrowUpRight, Bell, ChevronRight, CircleAlert, CircleCheck, Clock3, Download, MousePointerClick, RefreshCw, ShieldCheck, TrendingUp, Wallet } from "lucide-react";
+import { Activity, ChevronRight, CircleAlert, CircleCheck, Clock3, Download, MousePointerClick, RefreshCw, ShieldCheck } from "lucide-react";
 import { Area, AreaChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import { toast } from "sonner";
 import { Kpi, KpiGrid, PageHeader, Section, Tag, td, th } from "@/components/app/ui-bits";
-import { alerts, activities, brands, defaultCostRules } from "@/data/mock";
+import { alerts, activities, brands } from "@/data/mock";
 import { campaignResults, consolidatedPnl, filterMetrics, pctChange, sumMetrics } from "@/lib/calc";
 import { useFilters } from "@/lib/filters";
 import { money, moneyCompact, num, pct, ratio, shortDate } from "@/lib/format";
