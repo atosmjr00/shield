@@ -81,7 +81,7 @@ export function computePnl(t: Totals, rules: CostRules): Pnl {
     gross: t.grossRevenue, approved: t.approvedRevenue, settled: t.settledRevenue,
     paymentFees, refunds: t.refunds, chargebacks: t.chargebacks, netRevenue, spend: t.spend,
     variableCosts, commissions, taxes, fixedPerOrder, contributionMargin,
-    contributionMarginPct: t.approvedRevenue ? (contributionMargin - t.spend) / t.approvedRevenue : 0,
+    contributionMarginPct: t.approvedRevenue ? contributionMargin / t.approvedRevenue : 0,
     operatingProfit,
   };
 }
@@ -91,7 +91,7 @@ export function addPnl(a: Pnl, b: Pnl): Pnl {
   (Object.keys(a) as (keyof Pnl)[]).forEach((k) => {
     if (k !== "contributionMarginPct") out[k] = a[k] + b[k];
   });
-  out.contributionMarginPct = out.approved ? (out.contributionMargin - out.spend) / out.approved : 0;
+  out.contributionMarginPct = out.approved ? out.contributionMargin / out.approved : 0;
   return out;
 }
 
