@@ -19,7 +19,7 @@ interface FilterState {
 const Ctx = createContext<FilterState | null>(null);
 
 export function FiltersProvider({ children }: { children: ReactNode }) {
-  const [orgId, setOrg] = useState(organizations[0].id);
+  const [orgId, setOrg] = useState(organizations[0]!.id);
   const [brandId, setBrandId] = useState("all");
   const [period, setPeriod] = useState<PeriodDays>(30);
   const [costRules, setRules] = useState(defaultCostRules);

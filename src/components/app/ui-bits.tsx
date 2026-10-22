@@ -51,7 +51,7 @@ export function Kpi({ label, value, delta, invert, tip, loading }: { label: stri
       </div>
       {loading ? <Skeleton className="h-7 w-28" /> : <span className="num text-2xl font-medium">{value}</span>}
       {delta !== undefined && !loading && (
-        <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><Delta value={delta} invert={invert} /> vs. período anterior</span>
+        <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><Delta value={delta} invert={invert ?? false} /> vs. período anterior</span>
       )}
     </div>
   );

@@ -98,7 +98,7 @@ export function addPnl(a: Pnl, b: Pnl): Pnl {
 /** P&L consolidado: aplica as regras de cada marca separadamente e depois soma. */
 export function consolidatedPnl(brandIds: string[], days: number, rules: Record<string, CostRules>, offset = 0): Pnl {
   return brandIds
-    .map((id) => computePnl(sumMetrics(filterMetrics([id], days, offset)), rules[id]))
+    .map((id) => computePnl(sumMetrics(filterMetrics([id], days, offset)), rules[id]!))
     .reduce((acc, p) => (acc ? addPnl(acc, p) : p), null as Pnl | null) ?? computePnl(emptyTotals(), { paymentFeePct: 0, variableCostPct: 0, commissionPct: 0, taxPct: 0, fixedPerOrder: 0 });
 }
 
@@ -107,7 +107,7 @@ export function dailySeries(brandIds: string[], days: number, rules: Record<stri
   const byDate = new Map<string, DailyMetric[]>();
   rows.forEach((r) => byDate.set(r.date, [...(byDate.get(r.date) ?? []), r]));
   return [...byDate.entries()].sort(([a], [b]) => a.localeCompare(b)).map(([date, list]) => {
-    const pnl = list.map((m) => computePnl(sumMetrics([m]), rules[m.brandId])).reduce(addPnl);
+    const pnl = list.map((m) => computePnl(sumMetrics([m]), rules[m.brandId]!)).reduce(addPnl);
     return { date, receita: pnl.approved, investimento: pnl.spend, lucro: pnl.operatingProfit };
   });
 }
@@ -133,7 +133,7 @@ export function campaignResults(brandIds: string[], days: number, model: Attribu
     const list = campaigns.filter((c) => c.brandId === brandId);
     const sw = list.reduce((s, c) => s + c.spendWeight, 0);
     const mw = list.reduce((s, c) => s + c.modelWeight[model], 0);
-    const r = rules[brandId];
+    const r = rules[brandId]!;
     for (const c of list) {
       const spend = (t.spend * c.spendWeight) / sw;
       const share = c.modelWeight[model] / mw;
