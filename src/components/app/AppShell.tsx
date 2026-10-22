@@ -1,7 +1,7 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import {
-  Building2, ChevronsLeft, ChevronsRight, CircleDollarSign, GitBranch, LayoutDashboard,
-  Menu, Route as RouteIcon, Search, ScanSearch,
+  Blocks, Building2, ChevronsLeft, ChevronsRight, CircleDollarSign, GitBranch,
+  Menu, RadioTower, Route as RouteIcon, Search, ScanSearch, ShoppingBag, Wallet,
 } from "lucide-react";
 import { useState, type ReactNode } from "react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
