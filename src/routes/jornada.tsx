@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader, EmptyState } from "@/components/app/ui-bits";
 
 export const Route = createFileRoute("/jornada")({
-  head: () => ({ meta: [{ title: "Jornada do Lead — Ledgerline" }, { name: "description", content: "Jornada do Lead: módulo da plataforma Ledgerline." }, { property: "og:title", content: "Jornada do Lead — Ledgerline" }, { property: "og:description", content: "Jornada do Lead: módulo da plataforma Ledgerline." }] }),
+  head: () => ({ meta: [{ title: "Jornada do Lead — Nexora" }, { name: "description", content: "Jornada do Lead: módulo da plataforma Nexora." }, { property: "og:title", content: "Jornada do Lead — Nexora" }, { property: "og:description", content: "Jornada do Lead: módulo da plataforma Nexora." }] }),
   component: Page,
 });
 

@@ -8,7 +8,7 @@ import { useFilters } from "@/lib/filters";
 import type { AttributionModel } from "@/lib/types";
 import { toast } from "sonner";
 
-export const Route = createFileRoute("/campanhas")({ head: () => ({ meta: [{ title: "Campanhas — Ledgerline" }, { name: "description", content: "Operação e análise de campanhas de anúncios." }] }), component: CampaignsPage });
+export const Route = createFileRoute("/campanhas")({ head: () => ({ meta: [{ title: "Campanhas — Nexora" }, { name: "description", content: "Operação e análise de campanhas de anúncios." }] }), component: CampaignsPage });
 
 const modelLabels: Record<AttributionModel, string> = { first: "Primeiro toque", last: "Último toque", linear: "Linear" };
 const platformClass: Record<string, string> = { meta: "bg-blue-400/10 text-blue-300 border-blue-400/20", google: "bg-amber-300/10 text-amber-200 border-amber-300/20", tiktok: "bg-fuchsia-300/10 text-fuchsia-200 border-fuchsia-300/20" };

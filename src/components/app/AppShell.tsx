@@ -1,7 +1,7 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import {
   Blocks, Building2, ChevronsLeft, ChevronsRight, CircleDollarSign, GitBranch,
-  Menu, RadioTower, Route as RouteIcon, Search, ScanSearch, ShoppingBag, Wallet,
+  Menu, RadioTower, Route as RouteIcon, Search, ScanSearch, ShoppingBag, Wallet, CalendarDays, Layers3,
 } from "lucide-react";
 import { useState, type ReactNode } from "react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -15,10 +15,14 @@ import type { PeriodDays } from "@/lib/types";
 import { toast } from "sonner";
 
 const navGroups = [
-  { label: "ANÚNCIOS", items: [
+  { label: "OPERAÇÃO", items: [
     { to: "/campanhas", label: "Campanhas", icon: RadioTower },
     { to: "/contas", label: "Contas de anúncios", icon: Building2 },
-    { label: "Comprar uma conta", icon: ShoppingBag, disabled: true },
+    { to: "/marcas", label: "Marcas e ativos", icon: Layers3 },
+    { label: "Marketplace de ativos", icon: ShoppingBag, disabled: true },
+  ] },
+  { label: "TRÁFEGO ORGÂNICO", items: [
+    { label: "Calendário de conteúdo", icon: CalendarDays, disabled: true },
   ] },
   { label: "FINANCEIRO", items: [
     { to: "/lucro", label: "Lucro real", icon: CircleDollarSign },
@@ -62,9 +66,9 @@ function Logo({ collapsed }: { collapsed: boolean }) {
   return (
     <div className="flex h-14 items-center gap-2.5 px-4">
       <div className="grid h-7 w-7 shrink-0 place-items-center rounded-md border border-primary/40 bg-primary/10">
-        <span className="num text-xs font-semibold text-primary">Δ</span>
+        <span className="text-xs font-black tracking-tighter text-primary">N</span>
       </div>
-      {!collapsed && <span className="text-[15px] font-semibold tracking-tight">Ledgerline</span>}
+      {!collapsed && <span className="text-[15px] font-semibold tracking-tight">NEXORA</span>}
     </div>
   );
 }
@@ -101,8 +105,8 @@ function TopBar({ onMenu }: { onMenu: () => void }) {
           onKeyDown={(e) => { if (e.key === "Enter") toast.info("Busca global ainda indisponível neste protótipo."); }} />
       </div>
       <div className="hidden items-center gap-1.5 text-xs text-muted-foreground sm:flex lg:ml-0 ml-auto">
-        <span className={cn("h-1.5 w-1.5 rounded-full", f.loading ? "bg-warning animate-pulse" : "bg-positive")} />
-        {f.loading ? "Atualizando…" : "Atualizado 21/10 22:52"}
+        <span className={cn("h-1.5 w-1.5 rounded-full", f.loading ? "bg-warning animate-pulse" : "bg-primary")} />
+        {f.loading ? "Atualizando…" : "Modo demonstração"}
       </div>
       <DropdownMenu>
         <DropdownMenuTrigger className="grid h-8 w-8 place-items-center rounded-full border bg-secondary text-xs font-semibold">AJ</DropdownMenuTrigger>
@@ -140,7 +144,7 @@ export function AppShell({ children }: { children: ReactNode }) {
       <div className="flex min-w-0 flex-1 flex-col">
         <TopBar onMenu={() => setMobileOpen(true)} />
         <main className="flex-1 px-4 py-6 md:px-6 lg:px-8">{children}</main>
-        <footer className="border-t px-6 py-3 text-center text-[11px] text-muted-foreground">Ambiente demonstrativo — dados fictícios</footer>
+        <footer className="border-t px-6 py-3 text-center text-[11px] text-muted-foreground">NEXORA · Ambiente demonstrativo — dados fictícios</footer>
       </div>
     </div>
   );

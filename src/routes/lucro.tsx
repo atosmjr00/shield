@@ -8,7 +8,7 @@ import { consolidatedPnl, filterMetrics, sumMetrics } from "@/lib/calc";
 import { money, pct } from "@/lib/format";
 import type { CostRules } from "@/lib/types";
 
-export const Route = createFileRoute("/lucro")({ head: () => ({ meta: [{ title: "Lucro real — Ledgerline" }] }), component: ProfitTool });
+export const Route = createFileRoute("/lucro")({ head: () => ({ meta: [{ title: "Lucro real — Nexora" }] }), component: ProfitTool });
 
 const fields: { key: keyof CostRules; label: string; suffix: string }[] = [
   { key: "paymentFeePct", label: "Taxa de pagamento", suffix: "%" },
