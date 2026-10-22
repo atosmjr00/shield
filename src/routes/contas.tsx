@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Activity, AlertCircle, ArrowRight, BadgeCheck, Building2, Check, ChevronDown, CirclePlus, Facebook, Link2, RefreshCw, Search, ShieldCheck, Unplug, Wallet, X } from "lucide-react";
-import { useMemo, useState } from "react";
+import { Activity, AlertCircle, ArrowRight, BadgeCheck, Building2, Check, ChevronDown, CirclePlus, Facebook, Link2, RefreshCw, Search, ShieldCheck, X } from "lucide-react";
+import { useMemo, useState, type ReactNode } from "react";
 import { adAccounts, brands } from "@/data/mock";
 import { accountSpend } from "@/lib/calc";
 import { money } from "@/lib/format";
@@ -57,5 +57,5 @@ function AccountsPage() {
   </div>;
 }
 
-function Metric({ label, value, detail, icon, blue = false }: { label: string; value: string; detail: string; icon: React.ReactNode; blue?: boolean }) { return <div className="rounded-xl border border-border/80 bg-card/50 p-4"><div className="flex items-center justify-between gap-2 text-xs text-muted-foreground">{label}<span className={blue ? "text-blue-300" : ""}>{icon}</span></div><div className="mt-2 text-2xl font-semibold">{value}</div><div className="mt-1 text-[11px] text-muted-foreground">{detail}</div></div>; }
-function Step({ icon, title, detail }: { icon: React.ReactNode; title: string; detail: string }) { return <div className="flex items-start gap-3"><div className="mt-0.5 text-blue-300">{icon}</div><div><div className="text-sm font-medium">{title}</div><div className="mt-1 text-xs leading-5 text-muted-foreground">{detail}</div></div></div>; }
+function Metric({ label, value, detail, icon, blue = false }: { label: string; value: string; detail: string; icon: ReactNode; blue?: boolean }) { return <div className="rounded-xl border border-border/80 bg-card/50 p-4"><div className="flex items-center justify-between gap-2 text-xs text-muted-foreground">{label}<span className={blue ? "text-blue-300" : ""}>{icon}</span></div><div className="mt-2 text-2xl font-semibold">{value}</div><div className="mt-1 text-[11px] text-muted-foreground">{detail}</div></div>; }
+function Step({ icon, title, detail }: { icon: ReactNode; title: string; detail: string }) { return <div className="flex items-start gap-3"><div className="mt-0.5 text-blue-300">{icon}</div><div><div className="text-sm font-medium">{title}</div><div className="mt-1 text-xs leading-5 text-muted-foreground">{detail}</div></div></div>; }
