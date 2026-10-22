@@ -78,6 +78,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/campanhas': typeof CampanhasRoute
   '/atribuicao': typeof AtribuicaoRoute
   '/configuracoes': typeof ConfiguracoesRoute
   '/contas': typeof ContasRoute
@@ -88,6 +89,7 @@ export interface FileRoutesByTo {
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
+  '/campanhas': typeof CampanhasRoute
   '/': typeof IndexRoute
   '/atribuicao': typeof AtribuicaoRoute
   '/configuracoes': typeof ConfiguracoesRoute
@@ -101,6 +103,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/campanhas'
     | '/atribuicao'
     | '/configuracoes'
     | '/contas'
@@ -111,6 +114,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/campanhas'
     | '/atribuicao'
     | '/configuracoes'
     | '/contas'
@@ -120,6 +124,7 @@ export interface FileRouteTypes {
     | '/marcas'
   id:
     | '__root__'
+    | '/campanhas'
     | '/'
     | '/atribuicao'
     | '/configuracoes'
