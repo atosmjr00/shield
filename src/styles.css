@@ -134,10 +134,10 @@
 }
 .profit-stage {
   background:
-    radial-gradient(ellipse at 12% 0%, rgba(59, 130, 246, .16), transparent 42%),
-    radial-gradient(ellipse at 95% 80%, rgba(59, 130, 246, .10), transparent 36%),
-    linear-gradient(120deg, #101816 0%, #111817 48%, #11171b 100%);
-  box-shadow: 0 22px 70px rgba(0, 0, 0, .14), inset 0 1px rgba(255,255,255,.025);
+    radial-gradient(ellipse at 12% 0%, rgba(37, 99, 235, .22), transparent 42%),
+    radial-gradient(ellipse at 95% 80%, rgba(14, 165, 233, .12), transparent 36%),
+    linear-gradient(120deg, #0b1220 0%, #0d1729 48%, #101827 100%);
+  box-shadow: 0 22px 70px rgba(0, 0, 0, .20), inset 0 1px rgba(255,255,255,.035);
 }
 .profit-grid {
   pointer-events: none;
