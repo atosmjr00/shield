@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { PageHeader, EmptyState } from "@/components/app/ui-bits";
 
 export const Route = createFileRoute("/configuracoes")({
-  head: () => ({ meta: [{ title: "Configurações — Ledgerline" }, { name: "description", content: "Configurações: módulo da plataforma Ledgerline." }, { property: "og:title", content: "Configurações — Ledgerline" }, { property: "og:description", content: "Configurações: módulo da plataforma Ledgerline." }] }),
+  head: () => ({ meta: [{ title: "Configurações — Nexora" }, { name: "description", content: "Configurações: módulo da plataforma Nexora." }, { property: "og:title", content: "Configurações — Nexora" }, { property: "og:description", content: "Configurações: módulo da plataforma Nexora." }] }),
   component: Page,
 });
 
