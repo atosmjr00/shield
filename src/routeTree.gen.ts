@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AtribuicaoRouteImport } from './routes/atribuicao'
 import { Route as ConfiguracoesRouteImport } from './routes/configuracoes'
 import { Route as ContasRouteImport } from './routes/contas'
+import { Route as CampanhasRouteImport } from './routes/campanhas'
 import { Route as IntegracoesRouteImport } from './routes/integracoes'
 import { Route as JornadaRouteImport } from './routes/jornada'
 import { Route as LucroRouteImport } from './routes/lucro'
@@ -31,6 +32,11 @@ const AtribuicaoRoute = AtribuicaoRouteImport.update({
 const ConfiguracoesRoute = ConfiguracoesRouteImport.update({
   id: '/configuracoes',
   path: '/configuracoes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CampanhasRoute = CampanhasRouteImport.update({
+  id: '/campanhas',
+  path: '/campanhas',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContasRoute = ContasRouteImport.update({
@@ -63,6 +69,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/atribuicao': typeof AtribuicaoRoute
   '/configuracoes': typeof ConfiguracoesRoute
+  '/campanhas': typeof CampanhasRoute
   '/contas': typeof ContasRoute
   '/integracoes': typeof IntegracoesRoute
   '/jornada': typeof JornadaRoute
@@ -127,6 +134,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AtribuicaoRoute: typeof AtribuicaoRoute
   ConfiguracoesRoute: typeof ConfiguracoesRoute
+  CampanhasRoute: typeof CampanhasRoute
   ContasRoute: typeof ContasRoute
   IntegracoesRoute: typeof IntegracoesRoute
   JornadaRoute: typeof JornadaRoute
@@ -155,6 +163,13 @@ declare module '@tanstack/react-router' {
       path: '/configuracoes'
       fullPath: '/configuracoes'
       preLoaderRoute: typeof ConfiguracoesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/campanhas': {
+      id: '/campanhas'
+      path: '/campanhas'
+      fullPath: '/campanhas'
+      preLoaderRoute: typeof CampanhasRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contas': {
@@ -199,6 +214,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AtribuicaoRoute: AtribuicaoRoute,
   ConfiguracoesRoute: ConfiguracoesRoute,
+  CampanhasRoute: CampanhasRoute,
   ContasRoute: ContasRoute,
   IntegracoesRoute: IntegracoesRoute,
   JornadaRoute: JornadaRoute,
