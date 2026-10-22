@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import type { ReactNode } from "react";
 import {
   Activity, ArrowDownRight, ArrowRight, ArrowUpRight, BadgeAlert, CircleDollarSign,
   MousePointer2, Radio, ScanSearch, Sparkles, TrendingUp, WalletCards,
@@ -200,7 +201,7 @@ function RailMetric({ label, value, delta, detail, invert = false }: { label: st
   return <div className="border-b border-r border-border/60 px-4 py-4 last:border-r-0 md:border-b-0 md:px-5"><div className="text-[10px] font-medium uppercase tracking-[0.12em] text-muted-foreground">{label}</div><div className="mt-2 flex flex-wrap items-baseline gap-2"><span className="num text-xl font-semibold tracking-tight">{value}</span>{delta !== undefined && <span className={cn("inline-flex items-center gap-0.5 text-[10px] font-semibold", Math.abs(delta) < 0.005 ? "text-muted-foreground" : good ? "text-emerald-300" : "text-rose-300")}>{delta >= 0 ? <ArrowUpRight className="h-3 w-3" /> : <ArrowDownRight className="h-3 w-3" />}{pct(Math.abs(delta))}</span>}</div>{detail && <div className="mt-1.5 text-[10px] text-muted-foreground">{detail}</div>}</div>;
 }
 
-function Signal({ icon, tone, title, description, action, onClick }: { icon: React.ReactNode; tone: "warning" | "positive" | "info"; title: string; description: string; action: string; onClick: () => void }) {
+function Signal({ icon, tone, title, description, action, onClick }: { icon: ReactNode; tone: "warning" | "positive" | "info"; title: string; description: string; action: string; onClick: () => void }) {
   const styles = { warning: "border-amber-300/20 bg-amber-300/[0.06] text-amber-200", positive: "border-emerald-300/20 bg-emerald-300/[0.06] text-emerald-200", info: "border-sky-300/20 bg-sky-300/[0.06] text-sky-200" };
   return <div className="rounded-xl border border-border/70 bg-background/40 p-3.5"><div className="flex gap-3"><div className={cn("mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-lg border", styles[tone])}>{icon}</div><div className="min-w-0 flex-1"><div className="text-xs font-semibold">{title}</div><p className="mt-1 text-xs leading-5 text-muted-foreground">{description}</p><button onClick={onClick} className="mt-2 inline-flex items-center gap-1 text-[11px] font-semibold text-foreground/80 transition hover:text-foreground">{action}<ArrowRight className="h-3 w-3" /></button></div></div></div>;
 }
