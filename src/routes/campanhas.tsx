@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Activity, ArrowDownRight, ArrowUpRight, ChevronDown, CircleHelp, ExternalLink, Filter, Layers3, Pause, Play, Search, SlidersHorizontal, Sparkles, Target, TrendingUp, Wallet } from "lucide-react";
+import { Activity, ChevronDown, CircleHelp, Filter, Layers3, Pause, Play, Search, SlidersHorizontal, Sparkles, Target, TrendingUp, Wallet } from "lucide-react";
 import { useMemo, useState } from "react";
 import { campaigns, brands, adAccounts } from "@/data/mock";
 import { campaignResults } from "@/lib/calc";
@@ -18,17 +18,17 @@ function CampaignsPage() {
   const [query, setQuery] = useState("");
   const [status, setStatus] = useState("all");
   const [model, setModel] = useState<AttributionModel>("last");
-  const [paused, setPaused] = useState<string[]>([]);
+  const [statusOverrides, setStatusOverrides] = useState<Record<string, boolean>>({});
   const results = useMemo(() => campaignResults(f.brandIds, f.period, model, f.costRules).filter((r) => {
     const q = query.toLowerCase();
     const account = adAccounts.find((a) => a.id === r.campaign.accountId);
     const matchesQuery = !q || r.campaign.name.toLowerCase().includes(q) || account?.name.toLowerCase().includes(q) || r.campaign.channel.toLowerCase().includes(q);
-    const isPaused = paused.includes(r.campaign.id) || ["c4", "c7", "c12"].includes(r.campaign.id);
+    const isPaused = statusOverrides[r.campaign.id] ?? ["c4", "c7", "c12"].includes(r.campaign.id);
     return matchesQuery && (status === "all" || (status === "active" ? !isPaused : isPaused));
-  }), [f.brandIds, f.period, f.costRules, model, query, status, paused]);
+  }), [f.brandIds, f.period, f.costRules, model, query, status, statusOverrides]);
   const totals = results.reduce((a, r) => ({ spend: a.spend + r.spend, revenue: a.revenue + r.revenue, conversions: a.conversions + r.conversions, profit: a.profit + (r.margin * r.revenue) }), { spend: 0, revenue: 0, conversions: 0, profit: 0 });
   const roas = totals.spend ? totals.revenue / totals.spend : 0;
-  const activeCount = results.filter((r) => !paused.includes(r.campaign.id) && !["c4", "c7", "c12"].includes(r.campaign.id)).length;
+  const activeCount = results.filter((r) => !(statusOverrides[r.campaign.id] ?? ["c4", "c7", "c12"].includes(r.campaign.id))).length;
 
   return <div className="command-page mx-auto max-w-[1500px] space-y-6">
     <header className="flex flex-col justify-between gap-4 xl:flex-row xl:items-end">
@@ -51,7 +51,7 @@ function CampaignsPage() {
     <section className="grid gap-3 sm:grid-cols-3">
       <div className="rounded-xl border border-border/80 bg-card/50 p-4"><div className="flex items-center justify-between text-xs text-muted-foreground">Campanhas listadas <Layers3 className="h-4 w-4" /></div><div className="mt-2 text-2xl font-semibold">{results.length}</div><div className="mt-1 text-[11px] text-muted-foreground">Dentro da marca e do período selecionados</div></div>
       <div className="rounded-xl border border-border/80 bg-card/50 p-4"><div className="flex items-center justify-between text-xs text-muted-foreground">Ativas na visualização <Play className="h-4 w-4" /></div><div className="mt-2 text-2xl font-semibold">{activeCount}</div><div className="mt-1 text-[11px] text-muted-foreground">Status de demonstração até a conexão</div></div>
-      <div className="rounded-xl border border-border/80 bg-card/50 p-4"><div className="flex items-center justify-between text-xs text-muted-foreground">CPA médio ponderado <Target className="h-4 w-4" /></div><div className="mt-2 text-2xl font-semibold">{totals.conversions ? money(totals.spend / totals.conversions) : "—"}</div><div className="mt-1 text-[11px] text-muted-foreground">Investimento ÷ conversões atribuídas</div></div>
+      <div className="rounded-xl border border-border/80 bg-card/50 p-4"><div className="flex items-center justify-between text-xs text-muted-foreground">CPA médio ponderado <Target className="h-4 w-4" /></div><div className="mt-2 text-2xl font-semibold">{totals.conversions ? money(totals.spend / totals.conversions) : "—"}</div><div className="mt-1 text-[11px] text-muted-foreground">Investimento ÷ conversões atribuídas</div></div><div className="rounded-xl border border-border/80 bg-card/50 p-4"><div className="flex items-center justify-between text-xs text-muted-foreground">Margem atribuída <Wallet className="h-4 w-4" /></div><div className={`mt-2 text-2xl font-semibold ${totals.profit >= 0 ? "text-blue-300" : "text-rose-300"}`}>{money(totals.profit)}</div><div className="mt-1 text-[11px] text-muted-foreground">Estimativa antes de validação financeira</div></div>
     </section>
 
     <section className="overflow-hidden rounded-2xl border border-border/80 bg-card/40">
@@ -75,7 +75,7 @@ function CampaignsPage() {
               <td className="px-4 py-3.5"><div className="flex items-center gap-3"><div className="grid h-9 w-9 shrink-0 place-items-center rounded-xl border border-blue-400/15 bg-blue-400/[.07] text-blue-300"><Layers3 className="h-4 w-4" /></div><div className="min-w-0"><div className="max-w-[280px] truncate text-xs font-semibold">{campaign.name}</div><div className="mt-1 flex flex-wrap items-center gap-1.5 text-[10px] text-muted-foreground"><span>{brand?.name ?? "Marca"}</span><span>·</span><span>{account?.name ?? "Conta"}</span><span className={`rounded border px-1.5 py-0.5 ${platformClass[campaign.platform]}`}>{campaign.channel}</span></div></div></div></td>
               <td className="px-4 py-3.5"><span className={`inline-flex items-center gap-1.5 rounded-full px-2 py-1 text-[10px] font-medium ${isPaused ? "bg-muted text-muted-foreground" : "bg-blue-400/10 text-blue-300"}`}><span className={`h-1.5 w-1.5 rounded-full ${isPaused ? "bg-muted-foreground" : "bg-blue-300"}`} />{isPaused ? "Pausada" : "Ativa"}</span></td>
               <td className="num px-4 py-3.5 text-right text-xs">{money(r.spend)}</td><td className="num px-4 py-3.5 text-right text-xs">{r.conversions.toLocaleString("pt-BR", { maximumFractionDigits: 1 })}</td><td className="num px-4 py-3.5 text-right text-xs">{money(r.cpa)}</td><td className="num px-4 py-3.5 text-right text-xs">{money(r.revenue)}</td><td className="num px-4 py-3.5 text-right text-xs"><span className={r.roas >= 2 ? "text-blue-300" : "text-amber-200"}>{r.roas.toLocaleString("pt-BR", { maximumFractionDigits: 2 })}x</span></td>
-              <td className="px-4 py-3.5 text-right"><button onClick={() => { setPaused((old) => old.includes(campaign.id) ? old.filter((id) => id !== campaign.id) : [...old, campaign.id]); toast.info("Alteração apenas visual neste protótipo; a API ainda não está conectada."); }} className="inline-flex h-8 items-center gap-1.5 rounded-lg border border-border px-2.5 text-[10px] text-muted-foreground transition hover:border-blue-400/40 hover:text-blue-200">{isPaused ? <Play className="h-3 w-3" /> : <Pause className="h-3 w-3" />}{isPaused ? "Ativar" : "Pausar"}</button></td>
+              <td className="px-4 py-3.5 text-right"><button onClick={() => { setStatusOverrides((old) => ({ ...old, [campaign.id]: !isPaused })); toast.info("Alteração apenas visual neste protótipo; a API ainda não está conectada."); }} className="inline-flex h-8 items-center gap-1.5 rounded-lg border border-border px-2.5 text-[10px] text-muted-foreground transition hover:border-blue-400/40 hover:text-blue-200">{isPaused ? <Play className="h-3 w-3" /> : <Pause className="h-3 w-3" />}{isPaused ? "Ativar" : "Pausar"}</button></td>
             </tr>;
           })}</tbody>
         </table>
