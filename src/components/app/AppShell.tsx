@@ -1,6 +1,6 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import {
-  Building2, Cable, ChevronsLeft, ChevronsRight, CircleDollarSign, GitBranch, LayoutDashboard,
+  Building2, ChevronsLeft, ChevronsRight, CircleDollarSign, GitBranch, LayoutDashboard,
   Menu, Route as RouteIcon, Search, ScanSearch,
 } from "lucide-react";
 import { useState, type ReactNode } from "react";
