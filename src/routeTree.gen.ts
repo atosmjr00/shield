@@ -10,6 +10,9 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PainelRouteImport } from './routes/painel'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as CadastroRouteImport } from './routes/cadastro'
 import { Route as AtribuicaoRouteImport } from './routes/atribuicao'
 import { Route as ConfiguracoesRouteImport } from './routes/configuracoes'
 import { Route as ContasRouteImport } from './routes/contas'
@@ -22,6 +25,21 @@ import { Route as MarcasRouteImport } from './routes/marcas'
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PainelRoute = PainelRouteImport.update({
+  id: '/painel',
+  path: '/painel',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CadastroRoute = CadastroRouteImport.update({
+  id: '/cadastro',
+  path: '/cadastro',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AtribuicaoRoute = AtribuicaoRouteImport.update({
@@ -67,6 +85,9 @@ const MarcasRoute = MarcasRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/painel': typeof PainelRoute
+  '/login': typeof LoginRoute
+  '/cadastro': typeof CadastroRoute
   '/atribuicao': typeof AtribuicaoRoute
   '/configuracoes': typeof ConfiguracoesRoute
   '/campanhas': typeof CampanhasRoute
@@ -78,6 +99,9 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/painel': typeof PainelRoute
+  '/login': typeof LoginRoute
+  '/cadastro': typeof CadastroRoute
   '/campanhas': typeof CampanhasRoute
   '/atribuicao': typeof AtribuicaoRoute
   '/configuracoes': typeof ConfiguracoesRoute
@@ -91,6 +115,9 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/campanhas': typeof CampanhasRoute
   '/': typeof IndexRoute
+  '/painel': typeof PainelRoute
+  '/login': typeof LoginRoute
+  '/cadastro': typeof CadastroRoute
   '/atribuicao': typeof AtribuicaoRoute
   '/configuracoes': typeof ConfiguracoesRoute
   '/contas': typeof ContasRoute
@@ -103,6 +130,9 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/painel'
+    | '/login'
+    | '/cadastro'
     | '/campanhas'
     | '/atribuicao'
     | '/configuracoes'
@@ -114,6 +144,9 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/painel'
+    | '/login'
+    | '/cadastro'
     | '/campanhas'
     | '/atribuicao'
     | '/configuracoes'
@@ -126,6 +159,9 @@ export interface FileRouteTypes {
     | '__root__'
     | '/campanhas'
     | '/'
+    | '/painel'
+    | '/login'
+    | '/cadastro'
     | '/atribuicao'
     | '/configuracoes'
     | '/contas'
@@ -137,6 +173,9 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  PainelRoute: typeof PainelRoute
+  LoginRoute: typeof LoginRoute
+  CadastroRoute: typeof CadastroRoute
   AtribuicaoRoute: typeof AtribuicaoRoute
   ConfiguracoesRoute: typeof ConfiguracoesRoute
   CampanhasRoute: typeof CampanhasRoute
@@ -154,6 +193,27 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/painel': {
+      id: '/painel'
+      path: '/painel'
+      fullPath: '/painel'
+      preLoaderRoute: typeof PainelRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cadastro': {
+      id: '/cadastro'
+      path: '/cadastro'
+      fullPath: '/cadastro'
+      preLoaderRoute: typeof CadastroRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/atribuicao': {
@@ -217,6 +277,9 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  PainelRoute: PainelRoute,
+  LoginRoute: LoginRoute,
+  CadastroRoute: CadastroRoute,
   AtribuicaoRoute: AtribuicaoRoute,
   ConfiguracoesRoute: ConfiguracoesRoute,
   CampanhasRoute: CampanhasRoute,
