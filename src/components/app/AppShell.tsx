@@ -124,6 +124,9 @@ function TopBar({ onMenu }: { onMenu: () => void }) {
 export function AppShell({ children }: { children: ReactNode }) {
   const [collapsed, setCollapsed] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const path = useRouterState({ select: (s) => s.location.pathname });
+  // The SHIELD dashboard owns its full-viewport command-center shell.
+  if (path === "/") return <>{children}</>;
   return (
     <div className="flex min-h-screen w-full">
       <aside className={cn("sticky top-0 hidden h-screen shrink-0 flex-col border-r bg-sidebar transition-[width] md:flex", collapsed ? "w-14" : "w-56")}>
