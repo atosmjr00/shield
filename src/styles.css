@@ -593,3 +593,167 @@
 .auth-demo-divider{display:flex;align-items:center;gap:12px;margin-top:17px;color:#696477;font-size:8px;font-weight:800;letter-spacing:.12em}.auth-demo-divider:before,.auth-demo-divider:after{content:"";height:1px;flex:1;background:#ffffff12}.auth-demo-button{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;min-height:42px;margin-top:13px;border:1px solid #a78bfa50;border-radius:8px;background:#a78bfa0c;color:#d4c7ff;font-size:11px;font-weight:750;cursor:pointer;transition:background .15s,border-color .15s}.auth-demo-button:hover{background:#a78bfa19;border-color:#a78bfa9c}
 @media(max-width:980px){.shield-hero{grid-template-columns:1fr;gap:42px;padding-top:66px}.shield-hero-copy{max-width:650px}.shield-visual{width:100%;max-width:680px;margin:auto}.shield-section-top{grid-template-columns:1fr;gap:20px}.shield-section-top>p{max-width:600px}.shield-how{margin-left:28px;margin-right:28px}}
 @media(max-width:650px){.shield-nav{height:66px;padding:0 17px;gap:10px}.shield-nav-links{display:none}.shield-nav-actions{gap:13px;margin-left:auto}.shield-nav-cta{padding:10px 10px;font-size:9px}.shield-hero{padding:56px 17px 60px;gap:35px}.shield-hero h1{font-size:49px}.shield-hero-text{font-size:12px}.shield-proof{gap:10px}.shield-visual{padding:12px;border-radius:10px}.shield-stat-grid{gap:5px}.shield-stat{padding:9px 7px}.shield-stat strong{font-size:17px}.shield-stat small{font-size:7px}.shield-date-pill{font-size:6px}.shield-bottom-widgets{gap:5px}.shield-widget{gap:6px;padding:8px 6px}.shield-widget strong{font-size:7px}.shield-widget small{font-size:6px}.shield-widget-icon{width:25px;height:25px}.shield-marquee{gap:10px;padding:16px 12px;font-size:6px}.shield-features{padding:66px 17px}.shield-section-top h2{font-size:37px}.shield-feature-grid{grid-template-columns:1fr;margin-top:27px}.shield-feature-grid article{min-height:0;padding:19px}.shield-feature-grid article>small{margin-top:17px}.shield-how{margin:0 17px 55px;padding:22px;align-items:flex-start;flex-wrap:wrap;gap:15px}.shield-how>div:nth-child(2){min-width:0;flex:1}.shield-how h2{font-size:22px}.shield-how>.shield-btn-primary{width:100%}.shield-footer{padding:21px 17px;flex-wrap:wrap}.shield-footer>span{order:3;width:100%}.shield-footer>div{gap:12px}.auth-demo-button{font-size:10px}}
+
+
+/* SHIELD dashboard — single-shell dark violet visual system */
+.shield-app.shield-v2{
+  --sh-bg:#09080f;
+  --sh-panel:#11101a;
+  --sh-panel-2:#171422;
+  --sh-line:#2b253b;
+  --sh-text:#f5f1ff;
+  --sh-muted:#a29ab5;
+  --sh-blue:#a78bfa;
+  --sh-green:#4adea0;
+  --sh-red:#fb7185;
+  --sh-yellow:#fbbf24;
+  background:
+    radial-gradient(ellipse at 72% -15%,rgba(139,92,246,.09),transparent 42%),
+    var(--sh-bg);
+  color:var(--sh-text);
+}
+.shield-v2 .shield-sidebar{
+  background:#0c0a12;
+  border-right-color:#282136;
+}
+.shield-v2 .shield-mark{
+  border-color:#a78bfa55;
+  background:#a78bfa14;
+  color:#c4b5fd;
+  box-shadow:0 0 26px #8b5cf612;
+}
+.shield-v2 .workspace-avatar,
+.shield-v2 .profile-avatar,
+.shield-v2 .topbar-avatar{
+  background:#211a31;
+  color:#d8ccff;
+}
+.shield-v2 .shield-workspace{
+  border-color:#2b253b;
+  background:#12101a;
+}
+.shield-v2 .shield-nav-item:hover{
+  background:#191426;
+  color:#f5f1ff;
+}
+.shield-v2 .shield-nav-item.active{
+  border-color:#5b4385;
+  background:linear-gradient(100deg,#8b5cf625,#6d28d915);
+  color:#f0eaff;
+  box-shadow:inset 2px 0 #a78bfa;
+}
+.shield-v2 .shield-nav-item.active svg,
+.shield-v2 .eyebrow-line{
+  color:#c4b5fd;
+  background:#a78bfa;
+}
+.shield-v2 .shield-topbar{
+  background:rgba(9,8,15,.92);
+  border-bottom-color:#282136;
+}
+.shield-v2 .environment-pill{
+  border-color:#59417e;
+  background:#a78bfa12;
+  color:#c4b5fd;
+}
+.shield-v2 .environment-pill .live-dot,
+.shield-v2 .banner-status .live-dot{
+  background:#a78bfa;
+  box-shadow:0 0 9px #a78bfa75;
+}
+.shield-v2 .page-heading h1{color:#faf7ff}
+.shield-v2 .page-heading p,
+.shield-v2 .breadcrumbs{color:#a29ab5}
+.shield-v2 .secondary-button{
+  border-color:#3b304f;
+  background:#15111f;
+  color:#e3d9ff;
+}
+.shield-v2 .secondary-button:hover{
+  border-color:#8b5cf6;
+  background:#211831;
+}
+.shield-v2 .system-banner{
+  border-color:#44345d;
+  background:radial-gradient(ellipse at 0 0,#8b5cf61c,transparent 58%),#100d18;
+}
+.shield-v2 .banner-shield,
+.shield-v2 .protection-icon{
+  border-color:#6d28d955;
+  background:#8b5cf61b;
+  color:#c4b5fd;
+}
+.shield-v2 .banner-status{color:#c4b5fd}
+.shield-v2 .surface-panel,
+.shield-v2 .intelligence-brief,
+.shield-v2 .metric-card,
+.shield-v2 .intelligence-card,
+.shield-v2 .account-metric{
+  border-color:#2b253b;
+  background-color:#100e17;
+}
+.shield-v2 .intelligence-card:hover,
+.shield-v2 .platform-health:hover,
+.shield-v2 .account-row:hover{
+  border-color:#69508f;
+}
+.shield-v2 .signal-index{
+  border-color:#3b304f;
+  background:#100d18;
+}
+.shield-v2 .signal-index>span,
+.shield-v2 .intelligence-kicker,
+.shield-v2 .signal-index-label,
+.shield-v2 .metric-top>span:first-child{
+  color:#a99bbf;
+}
+.shield-v2 .intelligence-card button,
+.shield-v2 .row-open,
+.shield-v2 .platform-health-copy strong{
+  color:#c4b5fd;
+}
+.shield-v2 .intelligence-card.signal-critical .signal-glyph{
+  border-color:#fb718555;
+  background:#fb718511;
+  color:#fb7185;
+}
+.shield-v2 .intelligence-card.signal-warning .signal-glyph{
+  border-color:#fbbf2455;
+  background:#fbbf2411;
+  color:#fbbf24;
+}
+.shield-v2 .metric-icon.neutral,
+.shield-v2 .metric-icon,
+.shield-v2 .event-symbol.pending{
+  border-color:#4c3a68;
+  background:#a78bfa13;
+  color:#c4b5fd;
+}
+.shield-v2 .shield-table th{
+  background:#15111e;
+  color:#a99bbf;
+}
+.shield-v2 .shield-table td,
+.shield-v2 .event-row,
+.shield-v2 .shield-profile{
+  border-color:#282136;
+}
+.shield-v2 .search-field,
+.shield-v2 .account-filters select,
+.shield-v2 .add-domain-form input{
+  border-color:#3a304b;
+  background:#0d0b13;
+  color:#f5f1ff;
+}
+.shield-v2 .search-field:focus-within{
+  border-color:#a78bfa;
+  box-shadow:0 0 0 3px #a78bfa18;
+}
+.shield-v2 .shield-page-footer{border-color:#282136;color:#8f849f}
+.shield-v2 .shield-modal{border-color:#3b304f;background:#100e17}
+.shield-v2 .shield-modal-backdrop{background:#05030acc}
+@media(max-width:700px){
+  .shield-v2 .shield-sidebar{background:#0c0a12}
+  .shield-v2 .shield-topbar{padding:0 16px}
+  .shield-v2 .shield-content{padding:24px 16px}
+}
