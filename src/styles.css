@@ -378,3 +378,33 @@
 @media(max-width:1100px){.shield-v2 .dashboard-columns{grid-template-columns:1fr}.shield-v2 .platform-health-grid{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:12px}.shield-v2 .platform-health:nth-child(3){border-right:0}}
 @media(max-width:760px){.shield-v2 .shield-sidebar{width:270px}.shield-v2 .shield-content{padding:20px 14px}.shield-v2 .page-heading{align-items:flex-start;flex-direction:column}.shield-v2 .page-heading h1{font-size:25px}.shield-v2 .metrics-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.shield-v2 .metric-card:nth-child(2){border-right:0}.shield-v2 .metric-card:nth-child(-n+2){border-bottom:1px solid #242b35}.shield-v2 .banner-status{display:none}.shield-v2 .account-toolbar,.shield-v2 .logs-toolbar{align-items:stretch;flex-direction:column}.shield-v2 .account-filters{align-items:stretch;flex-direction:column}.shield-v2 .search-field{min-width:0}.shield-v2 .account-filters select{max-width:none}.shield-v2 .platform-health-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.shield-v2 .platform-health{border-right:0;border-bottom:1px solid #252c35;padding:10px}.shield-v2 .platform-health:last-child{border-bottom:0}.shield-v2 .account-row-copy em{display:none}.shield-v2 .account-row-right .status-pill{font-size:8px}.shield-v2 .shield-page-footer{flex-direction:column}.shield-v2 .table-bottom{flex-direction:column}.shield-v2 .system-banner{align-items:flex-start}.shield-v2 .account-detail-status{align-items:flex-start;flex-direction:column}}
 @media(prefers-reduced-motion:reduce){.shield-v2 *{scroll-behavior:auto!important;transition:none!important}}
+
+
+/* SHIELD INTELLIGENCE — signal-first operational analysis */
+.shield-v2 .intelligence-brief{margin-bottom:20px;border:1px solid #2a3039;border-radius:9px;background:#090c10;overflow:hidden}
+.shield-v2 .intelligence-brief-head{display:flex;justify-content:space-between;align-items:center;gap:24px;padding:22px 22px 18px;border-bottom:1px solid #242b35;background:linear-gradient(110deg,#0d1117 0%,#090c10 58%)}
+.shield-v2 .intelligence-kicker{display:block;color:#8c96a3;font-size:9px;font-weight:700;letter-spacing:.16em;margin-bottom:9px}
+.shield-v2 .intelligence-brief-head h2{font-size:20px;line-height:1.2;letter-spacing:-.04em;font-weight:650;color:#f3f5f7}
+.shield-v2 .intelligence-brief-head p{margin-top:7px;font-size:11px;color:#8993a0}
+.shield-v2 .signal-index{flex:0 0 168px;padding:12px 15px;border:1px solid #333b46;border-radius:7px;background:#0a0d12}
+.shield-v2 .signal-index>span{display:block;font-size:8px;letter-spacing:.12em;color:#8b95a2;font-weight:700}
+.shield-v2 .signal-index strong{display:block;margin-top:5px;font-size:30px;line-height:1.05;letter-spacing:-.05em;font-weight:650;color:#f5f6f8;font-variant-numeric:tabular-nums}
+.shield-v2 .signal-index strong small{font-size:11px;letter-spacing:0;color:#7d8794;margin-left:3px}
+.shield-v2 .signal-index em{display:block;margin-top:5px;font-size:9px;color:#a4adb8;font-style:normal}
+.shield-v2 .intelligence-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0}
+.shield-v2 .intelligence-card{padding:17px 19px 16px;border-right:1px solid #242b35;min-width:0;display:flex;flex-direction:column;align-items:flex-start}
+.shield-v2 .intelligence-card:last-child{border-right:0}
+.shield-v2 .intelligence-card-top{display:flex;align-items:center;justify-content:space-between;width:100%;gap:10px}
+.shield-v2 .signal-index-label{font-size:8px;letter-spacing:.11em;font-weight:700;color:#87919e}
+.shield-v2 .signal-glyph{display:grid;place-items:center;width:28px;height:28px;border:1px solid #303741;border-radius:6px;color:#cbd1d8;background:#11151b}
+.shield-v2 .intelligence-card h3{font-size:13px;line-height:1.35;font-weight:650;color:#eef0f3;margin-top:13px;letter-spacing:-.015em}
+.shield-v2 .intelligence-card p{font-size:10px;line-height:1.6;color:#909aa7;margin-top:6px;min-height:32px}
+.shield-v2 .intelligence-card button{display:flex;align-items:center;gap:7px;margin-top:15px;padding-top:11px;border-top:1px solid #252c35;width:100%;font-size:10px;color:#d5dbe2;text-align:left}
+.shield-v2 .intelligence-card button:hover{color:#fff}
+.shield-v2 .intelligence-card.signal-critical .signal-glyph{color:#ff6573;border-color:#54232b;background:#241116}
+.shield-v2 .intelligence-card.signal-warning .signal-glyph{color:#f4bd45;border-color:#4d3b17;background:#211b0e}
+.shield-v2 .intelligence-card.signal-neutral .signal-glyph{color:#dce2e9}
+.shield-v2 .intelligence-footnote{display:flex;justify-content:space-between;gap:12px;padding:11px 18px;border-top:1px solid #242b35;background:#0c1015;color:#7f8996;font-size:9px}
+.shield-v2 .intelligence-footnote span{display:flex;align-items:center;gap:6px}
+@media(max-width:1000px){.shield-v2 .intelligence-grid{grid-template-columns:1fr}.shield-v2 .intelligence-card{border-right:0;border-bottom:1px solid #242b35}.shield-v2 .intelligence-card:last-child{border-bottom:0}.shield-v2 .intelligence-card p{min-height:0}.shield-v2 .intelligence-card button{margin-top:10px}}
+@media(max-width:600px){.shield-v2 .intelligence-brief-head{align-items:stretch;flex-direction:column;padding:16px}.shield-v2 .intelligence-brief-head h2{font-size:17px}.shield-v2 .signal-index{flex-basis:auto}.shield-v2 .intelligence-card{padding:14px}.shield-v2 .intelligence-footnote{align-items:flex-start;flex-direction:column;padding:12px 14px}}
