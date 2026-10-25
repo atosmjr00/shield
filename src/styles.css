@@ -866,3 +866,67 @@
  .shield-v3 .metric-top{font-size:9px}
  .shield-v3 .metric-trend{font-size:8px}
 }
+
+
+/* SHIELD monochrome refresh — graphite, white, violet accents */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+:root{--shield-bg:#08080b;--shield-panel:#0e0e13;--shield-panel-2:#121218;--shield-line:#25242d;--shield-text:#f5f5f7;--shield-muted:#92919e;--shield-violet:#a78bfa;--shield-violet-bright:#c4b5fd}
+.shield-app.shield-v3,.shield-v3{font-family:'DM Sans',sans-serif!important;background:#08080b!important;color:#f5f5f7!important}
+.shield-v3 h1,.shield-v3 h2,.shield-v3 h3,.shield-v3 .shield-wordmark{font-family:'Space Grotesk','DM Sans',sans-serif!important}
+.shield-v3 .shield-sidebar{background:#09090c!important;border-right:1px solid #24232b!important}
+.shield-v3 .shield-main{background:#08080b!important}
+.shield-v3 .shield-topbar{background:#09090cf2!important;border-bottom:1px solid #24232b!important;backdrop-filter:blur(16px)}
+.shield-v3 .shield-brand{border-bottom-color:#24232b!important}
+.shield-v3 .shield-mark{background:#a78bfa12!important;border:1px solid #6d4ab0!important;color:#c4b5fd!important;box-shadow:0 0 22px #8b5cf61a}
+.shield-v3 .shield-wordmark{color:#fff!important;letter-spacing:-.06em!important}
+.shield-v3 .shield-wordmark-dot{color:#a78bfa!important}
+.shield-v3 .shield-brand-sub,.shield-v3 .shield-nav-label,.shield-v3 .intelligence-kicker,.shield-v3 .eyebrow{color:#85818f!important}
+.shield-v3 .shield-workspace,.shield-v3 .shield-protection-card{background:#0e0e13!important;border-color:#292832!important}
+.shield-v3 .shield-workspace:hover,.shield-v3 .shield-protection-card:hover{border-color:#51416d!important}
+.shield-v3 .shield-nav-item{color:#a6a4b1!important;border:1px solid transparent!important;border-radius:8px!important;transition:background .18s ease,border-color .18s ease,color .18s ease,transform .18s ease!important}
+.shield-v3 .shield-nav-item svg{color:#8d899a!important;transition:color .18s ease,transform .18s ease}
+.shield-v3 .shield-nav-item:hover{background:#15131b!important;color:#fff!important;transform:translateX(2px)}
+.shield-v3 .shield-nav-item:hover svg{color:#c4b5fd!important}
+.shield-v3 .shield-nav-item.active{background:#a78bfa12!important;border:1px solid #6c4b96!important;color:#fff!important;box-shadow:inset 2px 0 #b794f6,0 0 22px #8b5cf60b!important}
+.shield-v3 .shield-nav-item.active svg{color:#c4b5fd!important}
+.shield-v3 .shield-content{background:#08080b!important}
+.shield-v3 .page-heading h1{color:#faf9fc!important;font-family:'Space Grotesk',sans-serif!important;font-weight:600!important;letter-spacing:-.055em!important}
+.shield-v3 .page-heading p,.shield-v3 .breadcrumbs span{color:#8e8c99!important}
+.shield-v3 .eyebrow-line{background:#a78bfa!important}
+.shield-v3 .dashboard-intro,.shield-v3 .empty-onboarding,.shield-v3 .panel,.shield-v3 .integration-intro,.shield-v3 .settings-panel,.shield-v3 .dashboard-panel,.shield-v3 .account-toolbar,.shield-v3 .account-row,.shield-v3 .provider-card,.shield-v3 .alert-card{background:#0e0e13!important;border-color:#282730!important;box-shadow:none!important}
+.shield-v3 .dashboard-intro{border-radius:10px!important;background:linear-gradient(105deg,#121117 0%,#0d0d11 72%)!important;min-height:94px!important;padding:17px 20px!important;position:relative;overflow:hidden}
+.shield-v3 .dashboard-intro:after{content:"";position:absolute;right:0;top:0;width:3px;height:100%;background:linear-gradient(180deg,#c4b5fd,#7c3aed);opacity:.9}
+.shield-v3 .dashboard-intro-icon,.shield-v3 .metric-icon,.shield-v3 .empty-onboarding-icon,.shield-v3 .protection-icon{background:#a78bfa0d!important;border-color:#4b3a61!important;color:#c4b5fd!important}
+.shield-v3 .dashboard-intro-copy h2,.shield-v3 .empty-onboarding h2{color:#f4f3f7!important;font-family:'Space Grotesk',sans-serif!important;font-weight:600!important;letter-spacing:-.04em!important}
+.shield-v3 .dashboard-intro-copy p,.shield-v3 .empty-onboarding p{color:#92909d!important}
+.shield-v3 .metrics-grid{gap:12px!important}
+.shield-v3 .metric-card{background:#0d0d11!important;border:1px solid #292832!important;border-radius:10px!important;box-shadow:none!important;transition:transform .2s ease,border-color .2s ease,background .2s ease!important;animation:shield-rise .42s both}
+.shield-v3 .metric-card:nth-child(2){animation-delay:.05s}.shield-v3 .metric-card:nth-child(3){animation-delay:.1s}.shield-v3 .metric-card:nth-child(4){animation-delay:.15s}
+.shield-v3 .metric-card:hover{transform:translateY(-3px)!important;border-color:#5b4777!important;background:#111016!important}
+.shield-v3 .metric-top,.shield-v3 .metric-trend{color:#9694a0!important}
+.shield-v3 .metric-value{color:#fff!important;font-family:'Space Grotesk',sans-serif!important;font-weight:600!important;letter-spacing:-.055em!important}
+.shield-v3 .metric-value:empty{display:none}
+.shield-v3 .primary-button,.shield-v3 .shield-btn-primary{background:#b794f6!important;color:#100b18!important;border:1px solid #b794f6!important;border-radius:7px!important;font-family:'DM Sans',sans-serif!important;font-weight:700!important;box-shadow:0 4px 18px #a78bfa1c!important;transition:transform .18s ease,background .18s ease,box-shadow .18s ease!important}
+.shield-v3 .primary-button:hover,.shield-v3 .shield-btn-primary:hover{background:#d0b9ff!important;transform:translateY(-1px)!important;box-shadow:0 7px 24px #a78bfa35!important}
+.shield-v3 .secondary-button,.shield-v3 .shield-btn-secondary{background:#111016!important;color:#e9e5ef!important;border:1px solid #34313d!important;border-radius:7px!important;transition:all .18s ease!important}
+.shield-v3 .secondary-button:hover,.shield-v3 .shield-btn-secondary:hover{border-color:#8466aa!important;background:#191520!important;color:#fff!important}
+.shield-v3 .environment-pill{background:#a78bfa0c!important;border-color:#514065!important;color:#c4b5fd!important}
+.shield-v3 .live-dot{background:#b794f6!important;box-shadow:0 0 10px #a78bfa90!important}
+.shield-v3 .topbar-avatar,.shield-v3 .profile-avatar,.shield-v3 .workspace-avatar{background:#17121f!important;border-color:#4c3963!important;color:#d8c6ff!important}
+.shield-v3 input,.shield-v3 select,.shield-v3 textarea{background:#09090d!important;color:#f5f5f7!important;border:1px solid #34323d!important;border-radius:7px!important}
+.shield-v3 input:focus,.shield-v3 select:focus,.shield-v3 textarea:focus{outline:2px solid #a78bfa55!important;border-color:#9b7aca!important}
+.shield-v3 .shield-icon-button{color:#a7a4b2!important;border-color:transparent!important;transition:all .18s ease!important}
+.shield-v3 .shield-icon-button:hover{color:#d8c6ff!important;background:#a78bfa12!important;border-color:#40324f!important}
+.shield-v3 .shield-page-footer,.shield-v3 .profile-copy span,.shield-v3 .workspace-copy span{color:#777582!important}
+.shield-v3 .shield-protection-card strong,.shield-v3 .workspace-copy strong,.shield-v3 .profile-copy strong{color:#e9e7ee!important}
+.shield-v3 .shield-sidebar,.shield-v3 .shield-content{scrollbar-color:#393143 transparent}
+.shield-v3 .account-row:hover,.shield-v3 .provider-card:hover{border-color:#51416b!important;transform:translateY(-1px)}
+.shield-v3 .status-pending{background:#a78bfa12!important;color:#c4b5fd!important;border-color:#51416b!important}
+.shield-v3 .status-connected{background:#101b16!important;color:#7ee7b0!important;border-color:#244b37!important}
+.shield-v3 .status-attention{background:#20170d!important;color:#f2c879!important;border-color:#5a4324!important}
+@keyframes shield-rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes shield-glow{0%,100%{box-shadow:0 0 0 #a78bfa00}50%{box-shadow:0 0 24px #a78bfa10}}
+.shield-v3 .dashboard-intro{animation:shield-rise .38s both}
+.shield-v3 .empty-onboarding{animation:shield-rise .48s .08s both}
+.shield-v3 .shield-mark{animation:shield-glow 5s ease-in-out infinite}
+@media(prefers-reduced-motion:reduce){.shield-v3 *, .shield-v3 *:before,.shield-v3 *:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
