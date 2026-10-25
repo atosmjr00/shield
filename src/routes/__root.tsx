@@ -4,6 +4,7 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
   type ErrorComponentProps,
@@ -66,8 +67,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Nexora — Analytics e Lucro Real" },
-      { name: "description", content: "Analytics, atribuição e inteligência financeira multi-marca." },
+      { title: "SHIELD — Inteligência operacional" },
+      { name: "description", content: "Centro de comando para monitorar ativos, integrações e sinais operacionais." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -101,14 +102,14 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
+  const isPublicPage = pathname === "/" || pathname === "/login" || pathname === "/cadastro";
 
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider delayDuration={150}>
         <FiltersProvider>
-          <AppShell>
-            <Outlet />
-          </AppShell>
+          {isPublicPage ? <Outlet /> : <AppShell><Outlet /></AppShell>}
         </FiltersProvider>
         <Toaster theme="dark" />
       </TooltipProvider>
