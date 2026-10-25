@@ -217,3 +217,164 @@
 @media(max-width:900px){.shield-sidebar{position:fixed;left:0;top:0;transform:translateX(-102%);transition:transform .22s ease;box-shadow:20px 0 50px #0007}.shield-sidebar.mobile-open{transform:translateX(0)}.mobile-close,.mobile-menu{display:grid!important}.shield-topbar{padding:0 18px}.shield-content{padding:25px 18px}.metrics-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.dashboard-columns,.alerts-view{grid-template-columns:1fr}.status-panel{order:-1}.alert-preview{max-width:none}.banner-status{display:none}}
 @media(max-width:600px){.shield-topbar{min-height:56px;gap:9px;padding:0 12px}.breadcrumbs{font-size:10px;gap:6px}.environment-pill{padding:6px;font-size:0}.environment-pill .live-dot{width:7px;height:7px}.topbar-right{gap:8px}.topbar-avatar{width:29px;height:29px}.shield-content{padding:22px 12px}.page-heading{align-items:flex-start;flex-direction:column;margin-bottom:19px}.page-heading h1{font-size:26px}.page-heading>button{width:100%}.system-banner{align-items:flex-start;padding:13px}.banner-shield{width:35px;height:35px}.banner-copy strong{font-size:11px}.banner-copy span{font-size:9px;line-height:1.6}.metrics-grid{gap:9px}.metric-card{padding:13px}.metric-top{align-items:flex-start;font-size:9px}.metric-icon{width:27px;height:27px}.metric-value{font-size:24px;margin-top:9px}.metric-trend{font-size:8px;line-height:1.5}.dashboard-columns{gap:12px}.panel-heading{padding:14px}.panel-heading h2{font-size:11px}.event-toolbar{align-items:stretch;flex-direction:column;padding:11px 13px}.event-toolbar select{width:100%}.event-list{padding:2px 13px}.event-row{gap:8px}.event-body p{font-size:9px}.event-meta time{font-size:8px}.connector-mini-list{padding:4px 13px}.status-pill{font-size:8px;padding:4px 5px}.uptime-box{margin:9px 13px 13px}.quick-action-grid{padding:10px}.integration-grid{grid-template-columns:1fr}.integration-card{padding:15px}.integration-card>p{min-height:0}.section-intro{align-items:flex-start}.links-add-row{align-items:stretch;flex-direction:column;padding:15px}.add-domain-form{min-width:0;padding-left:9px}.add-domain-form .primary-button{padding:0 8px}.shield-table th,.shield-table td{padding:12px}.table-bottom{align-items:flex-start;flex-direction:column}.alert-toggle-row{gap:10px;padding:14px}.alert-channel-icon{width:33px;height:33px}.alert-toggle-title{font-size:10px}.alert-toggle-copy p{font-size:9px}.alert-config-fields{grid-template-columns:1fr;padding:14px}.alert-test-row{align-items:stretch;flex-direction:column;padding:14px}.alert-test-row button{width:100%}.shield-page-footer{align-items:flex-start;flex-direction:column;line-height:1.6}.modal-header{padding:17px}.shield-modal form{padding:15px 17px 17px}.modal-actions .primary-button{flex:1}.environment-pill{gap:0}}
 @media(prefers-reduced-motion:reduce){.shield-app *{animation:none!important;transition:none!important}}
+
+
+/* SHIELD V2 — monochrome command center, account-first information hierarchy */
+.shield-v2{--sh-bg:#07090d;--sh-panel:#0b0e13;--sh-panel-2:#10141b;--sh-line:#242b35;--sh-text:#f1f3f5;--sh-muted:#929ba8;--sh-blue:#f2f4f7;--sh-green:#18c784;--sh-red:#ff4d5e;--sh-yellow:#f4bd45;--sh-purple:#a6a9ff;background:#07090d;color:#f1f3f5;font-family:Inter,Manrope,ui-sans-serif,system-ui,sans-serif;font-size:13px}
+.shield-v2 .shield-sidebar{width:248px;background:#080a0e;border-color:#20252d;padding:24px 15px 14px}
+.shield-v2 .shield-mark{background:#f4f5f7;color:#090b0e;border:0;border-radius:10px;box-shadow:none}
+.shield-v2 .shield-wordmark{font-size:20px;letter-spacing:.075em;color:#f6f7f8}
+.shield-v2 .shield-wordmark span{color:#f6f7f8}
+.shield-v2 .shield-brand-sub{letter-spacing:.15em;color:#737d8b}
+.shield-v2 .shield-workspace{background:#0d1016;border-color:#252b34;border-radius:9px}
+.shield-v2 .workspace-avatar{background:#191f29;color:#f1f3f5}
+.shield-v2 .shield-nav-label{color:#6f7885}
+.shield-v2 .shield-nav{gap:4px}
+.shield-v2 .shield-nav-item{min-height:40px;border-radius:7px;color:#a0a7b2;font-size:12px}
+.shield-v2 .shield-nav-item:hover{background:#12161d;color:#f5f6f8}
+.shield-v2 .shield-nav-item.active{background:#171b22;border-color:#333b47;box-shadow:inset 2px 0 #f4f5f7;color:#fff}
+.shield-v2 .shield-nav-item.active svg{color:#fff}
+.shield-v2 .nav-count{background:#2a151a;color:#ff7783}
+.shield-v2 .shield-protection-card{background:#0d1115;border-color:#262d34}
+.shield-v2 .protection-icon{background:#12251e;color:#18c784}
+.shield-v2 .shield-profile{border-color:#252b34}
+.shield-v2 .profile-avatar,.shield-v2 .topbar-avatar{background:#1a2029;color:#f3f4f6;border:1px solid #303844}
+.shield-v2 .shield-topbar{background:#080a0e;border-color:#222831}
+.shield-v2 .breadcrumbs span{color:#78818d}
+.shield-v2 .breadcrumbs strong{color:#e8eaed}
+.shield-v2 .environment-pill{background:#10141a;border-color:#303741;color:#b7bec8;letter-spacing:.07em}
+.shield-v2 .environment-pill .live-dot{background:#9aa3af;box-shadow:none}
+.shield-v2 .environment-pill.is-live .live-dot{background:#18c784}
+.shield-v2 .shield-content{max-width:1600px;padding:28px 28px 20px}
+.shield-v2 .page-heading{align-items:center;margin-bottom:22px}
+.shield-v2 .eyebrow{color:#858e9b;letter-spacing:.14em;font-size:9px}
+.shield-v2 .eyebrow-line{background:#f2f4f7;width:15px;height:2px}
+.shield-v2 .page-heading h1{font-size:29px;line-height:1.2;letter-spacing:-.045em;font-weight:650;color:#f6f7f8}
+.shield-v2 .page-heading p{color:#929ba8;font-size:12px;margin-top:7px}
+.shield-v2 .secondary-button,.shield-v2 .primary-button{border-radius:7px;box-shadow:none;font-size:11px;font-weight:600}
+.shield-v2 .secondary-button{background:#0d1015;border-color:#333b46;color:#e1e4e8}
+.shield-v2 .secondary-button:hover{background:#171c23;border-color:#505966}
+.shield-v2 .primary-button{background:#f2f4f7;color:#090b0f;border-color:#f2f4f7}
+.shield-v2 .primary-button:hover{background:#dce0e5}
+.shield-v2 .system-banner{display:flex;align-items:center;gap:13px;min-height:58px;padding:12px 16px;background:#0b1011;border:1px solid #26342f;border-radius:8px;margin-bottom:20px}
+.shield-v2 .system-banner .banner-shield{background:#12271f;color:#18c784;border:1px solid #204c3a;border-radius:8px}
+.shield-v2 .banner-copy strong{font-size:11px;font-weight:650;color:#e8ecef}
+.shield-v2 .banner-copy span{font-size:10px;color:#89949f;margin-top:4px}
+.shield-v2 .banner-status{font-size:9px;color:#18c784;letter-spacing:.08em;white-space:nowrap}
+.shield-v2 .banner-live{border-color:#245440}
+.shield-v2 .metrics-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:0;background:transparent;border:1px solid #242b35;border-radius:8px;overflow:hidden;margin-bottom:20px}
+.shield-v2 .metric-card{min-height:104px;padding:17px 19px;background:#0b0e13;border:0;border-right:1px solid #242b35;border-radius:0;box-shadow:none}
+.shield-v2 .metric-card:last-child{border-right:0}
+.shield-v2 .metric-top{font-size:11px;color:#a5adb8}
+.shield-v2 .metric-icon{background:transparent!important;color:#e8ebef!important;border:0;padding:0}
+.shield-v2 .metric-value{font-size:27px;letter-spacing:-.045em;font-weight:650;color:#f7f8fa;margin-top:10px}
+.shield-v2 .metric-trend{font-size:10px;color:#858e9b;margin-top:5px}
+.shield-v2 .metric-trend-dot{width:5px;height:5px}
+.shield-v2 .metric-trend-dot.neutral,.shield-v2 .metric-icon.neutral{background:#929ba8;color:#e8ebef}
+.shield-v2 .metric-trend-dot.green{background:#18c784}
+.shield-v2 .metric-trend-dot.red{background:#ff4d5e}
+.shield-v2 .metric-accent{display:none}
+.shield-v2 .dashboard-columns{grid-template-columns:minmax(0,1.1fr) minmax(360px,.9fr);gap:16px;margin-bottom:16px}
+.shield-v2 .surface-panel{background:#0b0e13;border:1px solid #272e38;border-radius:8px;box-shadow:none;overflow:hidden}
+.shield-v2 .panel-heading{min-height:57px;padding:15px 17px;border-bottom:1px solid #242b35}
+.shield-v2 .panel-heading h2,.shield-v2 .account-toolbar h2,.shield-v2 .links-add-row h2,.shield-v2 .logs-toolbar h2{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:650;letter-spacing:-.01em;color:#eef0f3}
+.shield-v2 .panel-heading h2>svg{color:#e6e9ed}
+.shield-v2 .panel-heading p,.shield-v2 .account-toolbar p,.shield-v2 .links-add-row p,.shield-v2 .logs-toolbar p{margin-top:5px;font-size:10px;color:#838d9a}
+.shield-v2 .text-action{color:#c3c9d1;font-size:10px}
+.shield-v2 .text-action:hover{color:#fff}
+.shield-v2 .account-list{padding:0 16px}
+.shield-v2 .account-row{display:flex;align-items:center;gap:11px;width:100%;padding:13px 2px;text-align:left;border-bottom:1px solid #202630;background:transparent;min-width:0}
+.shield-v2 .account-row:last-child{border-bottom:0}
+.shield-v2 .account-row:hover{background:#10141a}
+.shield-v2 .platform-icon{display:grid;place-items:center;flex:0 0 40px;width:40px;height:40px;border:1px solid #303741;border-radius:10px;color:var(--platform-color,#fff);background:#0a0d11}
+.shield-v2 .platform-icon svg{stroke-width:2}
+.shield-v2 .account-row-copy{display:flex;flex:1;min-width:0;flex-direction:column;gap:4px}
+.shield-v2 .account-row-copy strong{font-size:11px;font-weight:650;color:#eef0f3}
+.shield-v2 .account-row-copy small{font-size:9px;color:#8e98a5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.shield-v2 .account-row-copy em{font-size:9px;font-style:normal;color:#7f8996;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.shield-v2 .account-row-right{display:flex;align-items:flex-end;flex-direction:column;gap:5px;white-space:nowrap}
+.shield-v2 .account-row-right>small{font-size:9px;color:#727d8b}
+.shield-v2 .status-pill{display:inline-flex;align-items:center;gap:6px;border:1px solid #303741;border-radius:5px;padding:5px 7px;font-size:9px;font-weight:600;white-space:nowrap;background:#10141a;color:#b9c0c9}
+.shield-v2 .status-pill .state-dot,.shield-v2 .state-dot{width:6px;height:6px;border-radius:50%;background:currentColor}
+.shield-v2 .status-pill.healthy{color:#18c784;background:#0c1e17;border-color:#1e4937}
+.shield-v2 .status-pill.warning{color:#f4bd45;background:#211b0e;border-color:#4d3b17}
+.shield-v2 .status-pill.critical{color:#ff5968;background:#241116;border-color:#54232b}
+.shield-v2 .status-pill.pending{color:#a3abb7;background:#12161d;border-color:#303741}
+.shield-v2 .event-list{padding:0 16px}
+.shield-v2 .event-row{display:flex;align-items:flex-start;gap:10px;padding:13px 0;border-bottom:1px solid #202630}
+.shield-v2 .event-row:last-child{border-bottom:0}
+.shield-v2 .event-symbol{width:25px;height:25px;border-radius:6px}
+.shield-v2 .event-symbol.healthy{background:#10251d;color:#18c784}
+.shield-v2 .event-symbol.warning{background:#29200e;color:#f4bd45}
+.shield-v2 .event-symbol.critical{background:#291116;color:#ff5968}
+.shield-v2 .event-symbol.pending{background:#171c24;color:#a7b0bc}
+.shield-v2 .event-body{flex:1;min-width:0}
+.shield-v2 .event-meta{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.shield-v2 .event-source{font-size:9px;font-weight:700;letter-spacing:.035em}
+.shield-v2 .event-source.healthy{color:#dce2e9}
+.shield-v2 .event-source.warning{color:#f4bd45}
+.shield-v2 .event-source.critical{color:#ff6573}
+.shield-v2 .event-source.pending{color:#a7b0bc}
+.shield-v2 .event-meta time{font-size:9px;color:#75808e;font-variant-numeric:tabular-nums}
+.shield-v2 .event-body p{font-size:10px;line-height:1.45;color:#929ba8;margin-top:5px}
+.shield-v2 .health-summary{margin-bottom:17px}
+.shield-v2 .platform-health-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));padding:17px 8px}
+.shield-v2 .platform-health{display:flex;align-items:center;gap:10px;padding:6px 13px;text-align:left;border-right:1px solid #252c35;min-width:0}
+.shield-v2 .platform-health:last-child{border-right:0}
+.shield-v2 .platform-health:hover{background:#11151b}
+.shield-v2 .platform-health-copy{display:flex;flex-direction:column;gap:7px;min-width:0}
+.shield-v2 .platform-health-copy strong{font-size:10px;font-weight:650;white-space:nowrap;color:#e8ebef}
+.shield-v2 .platform-health-copy small{display:flex;align-items:center;gap:5px;font-size:9px;color:#929ba8;white-space:nowrap}
+.shield-v2 .platform-icon.small{width:34px;height:34px;flex-basis:34px;border-radius:8px}
+.shield-v2 .status-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#18c784;flex-shrink:0}
+.shield-v2 .status-dot.warning{background:#f4bd45}.shield-v2 .status-dot.critical{background:#ff5968}.shield-v2 .status-dot.pending{background:#929ba8}
+.shield-v2 .accounts-view{overflow:hidden}
+.shield-v2 .account-toolbar,.shield-v2 .logs-toolbar{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:17px;border-bottom:1px solid #252c35}
+.shield-v2 .account-filters{display:flex;align-items:center;gap:8px;min-width:0}
+.shield-v2 .search-field{display:flex;align-items:center;gap:8px;min-width:210px;height:34px;padding:0 10px;border:1px solid #303741;border-radius:6px;background:#080b0f;color:#8c96a3}
+.shield-v2 .search-field input{min-width:0;width:100%;border:0;outline:0;background:transparent;color:#eef0f3;font-size:10px}
+.shield-v2 .account-filters select{height:34px;max-width:180px;border:1px solid #303741;border-radius:6px;background:#0b0e13;color:#d5dae0;padding:0 9px;font-size:10px}
+.shield-v2 .account-table-wrap,.shield-v2 .table-scroll{overflow-x:auto}
+.shield-v2 .shield-table{width:100%;border-collapse:collapse;white-space:nowrap}
+.shield-v2 .shield-table th{padding:11px 16px;text-align:left;background:#0c1015;color:#737e8b;font-size:8px;letter-spacing:.11em;font-weight:700;border-bottom:1px solid #252c35}
+.shield-v2 .shield-table td{padding:11px 16px;border-bottom:1px solid #202630;color:#a3acb7;font-size:10px}
+.shield-v2 .shield-table tbody tr:hover{background:#10141a}
+.shield-v2 .account-table-name{display:flex;align-items:center;gap:11px;text-align:left;min-width:290px}
+.shield-v2 .account-table-name>span:last-child{display:flex;flex-direction:column;gap:4px;min-width:0}
+.shield-v2 .account-table-name strong{font-size:10px;font-weight:650;color:#edf0f3}
+.shield-v2 .account-table-name small{font-size:9px;color:#858f9d}
+.shield-v2 .row-open{display:grid;place-items:center;width:28px;height:28px;border:1px solid #303741;border-radius:6px;color:#9ba4b0}
+.shield-v2 .row-open:hover{color:#fff;border-color:#5b6470}
+.shield-v2 .mono{font-variant-numeric:tabular-nums;font-family:"IBM Plex Mono",monospace}
+.shield-v2 .table-bottom{display:flex;justify-content:space-between;gap:10px;padding:12px 16px;color:#727d8a;font-size:9px}
+.shield-v2 .links-add-row{padding:17px;border-bottom:1px solid #252c35}
+.shield-v2 .add-domain-expanded{display:flex;margin:14px 17px;align-items:center;gap:10px;padding:8px 10px;border:1px solid #303741;border-radius:7px}
+.shield-v2 .add-domain-expanded input{flex:1;min-width:0;background:transparent;color:#f2f4f7;outline:0;font-size:11px}
+.shield-v2 .link-status{display:inline-flex;align-items:center;gap:6px}.shield-v2 .link-status span{width:6px;height:6px;border-radius:50%;background:#f4bd45}.shield-v2 .link-status.healthy{color:#18c784}.shield-v2 .link-status.healthy span{background:#18c784}
+.shield-v2 .alert-settings .alert-toggle-row{padding:17px;border-bottom:1px solid #222933}
+.shield-v2 .alert-channel-icon{background:#11161d;color:#e4e8ed;border:1px solid #2b333d}
+.shield-v2 .alert-toggle-title{font-size:11px;color:#edf0f3}.shield-v2 .alert-toggle-copy p{font-size:10px;color:#8d97a4}
+.shield-v2 .switch-control{background:#303741}.shield-v2 .switch-control.enabled{background:#e9edf1}
+.shield-v2 .switch-control.enabled span{background:#080a0e}
+.shield-v2 .security-note{display:flex;align-items:flex-start;gap:10px;margin:17px;padding:13px;border:1px solid #2a3039;border-radius:7px;background:#0e1218;color:#9aa3af;font-size:10px;line-height:1.6}
+.shield-v2 .security-note svg{flex-shrink:0;color:#c4cbd3}
+.shield-v2 .security-note p{margin:0}
+.shield-v2 .shield-page-footer{display:flex;justify-content:space-between;gap:12px;padding:17px 0 0;border-top:1px solid #202630;color:#707b88;font-size:9px}
+.shield-v2 .shield-page-footer span:first-child{display:flex;align-items:center;gap:6px;letter-spacing:.08em}
+.shield-v2 .shield-modal{background:#0b0e13;border-color:#303741;border-radius:10px;max-width:620px}
+.shield-v2 .modal-header{border-bottom:1px solid #242b35}
+.shield-v2 .modal-header h2{font-size:20px;letter-spacing:-.03em}
+.shield-v2 .modal-header p{font-size:10px;color:#929ba8}
+.shield-v2 .account-detail-status{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:15px 0;color:#929ba8;font-size:10px}
+.shield-v2 .account-detail-issue{display:flex;gap:10px;padding:14px;border:1px solid #2a3039;border-radius:7px;background:#10141a}
+.shield-v2 .account-detail-issue .status-dot{margin-top:5px}
+.shield-v2 .account-detail-issue strong{font-size:11px;font-weight:650;color:#eef0f3}
+.shield-v2 .account-detail-issue p{margin-top:5px;font-size:10px;line-height:1.5;color:#929ba8}
+.shield-v2 .account-metric-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:13px}
+.shield-v2 .account-metric{display:flex;flex-direction:column;gap:8px;padding:13px;border:1px solid #272e38;border-radius:7px;background:#0a0d11}
+.shield-v2 .account-metric span{font-size:9px;color:#8e98a5}.shield-v2 .account-metric strong{font-size:13px;color:#f0f2f5;font-weight:650}
+.shield-v2 .modal-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:16px}
+.shield-v2 .demo-dot{background:#929ba8;box-shadow:none}
+@media(max-width:1100px){.shield-v2 .dashboard-columns{grid-template-columns:1fr}.shield-v2 .platform-health-grid{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:12px}.shield-v2 .platform-health:nth-child(3){border-right:0}}
+@media(max-width:760px){.shield-v2 .shield-sidebar{width:270px}.shield-v2 .shield-content{padding:20px 14px}.shield-v2 .page-heading{align-items:flex-start;flex-direction:column}.shield-v2 .page-heading h1{font-size:25px}.shield-v2 .metrics-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.shield-v2 .metric-card:nth-child(2){border-right:0}.shield-v2 .metric-card:nth-child(-n+2){border-bottom:1px solid #242b35}.shield-v2 .banner-status{display:none}.shield-v2 .account-toolbar,.shield-v2 .logs-toolbar{align-items:stretch;flex-direction:column}.shield-v2 .account-filters{align-items:stretch;flex-direction:column}.shield-v2 .search-field{min-width:0}.shield-v2 .account-filters select{max-width:none}.shield-v2 .platform-health-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.shield-v2 .platform-health{border-right:0;border-bottom:1px solid #252c35;padding:10px}.shield-v2 .platform-health:last-child{border-bottom:0}.shield-v2 .account-row-copy em{display:none}.shield-v2 .account-row-right .status-pill{font-size:8px}.shield-v2 .shield-page-footer{flex-direction:column}.shield-v2 .table-bottom{flex-direction:column}.shield-v2 .system-banner{align-items:flex-start}.shield-v2 .account-detail-status{align-items:flex-start;flex-direction:column}}
+@media(prefers-reduced-motion:reduce){.shield-v2 *{scroll-behavior:auto!important;transition:none!important}}
