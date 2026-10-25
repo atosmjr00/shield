@@ -1,42 +1,39 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Activity, ArrowRight, BellRing, ChartNoAxesCombined, CheckCircle2, ChevronRight, CircleDot, ShieldCheck, Signal, Zap } from "lucide-react";
+import { ArrowDownRight, ArrowRight, BarChart3, Bell, Check, ChevronRight, CircleDollarSign, Command, Layers3, LockKeyhole, MousePointerClick, Shield, Sparkles, TrendingUp, Zap } from "lucide-react";
 
 export const Route = createFileRoute("/")({ head: () => ({ meta: [
-  { title: "SHIELD — Inteligência operacional para sua operação digital" },
-  { name: "description", content: "Monitore contas, integrações, links e incidentes da sua operação digital em um único centro de comando." },
+  { title: "SHIELD — Controle sua operação de tráfego" },
+  { name: "description", content: "Centralize contas, campanhas e alertas em um só painel." },
 ] }), component: LandingPage });
 
-const capabilities = [
-  { icon: Signal, title: "Saúde das integrações", description: "Enxergue conexões pendentes, alertas e falhas por ativo, sem misturar demonstração com dados reais." },
-  { icon: BellRing, title: "Incidentes em contexto", description: "Organize sinais operacionais e saiba o que precisa de atenção primeiro." },
-  { icon: ChartNoAxesCombined, title: "Visão de operação", description: "Construa uma leitura única dos ativos digitais e prepare o caminho para métricas de desempenho." },
-];
-
 function LandingPage() {
-  return <main className="landing-shell">
-    <nav className="landing-nav">
-      <Link to="/" className="landing-brand" aria-label="SHIELD início"><span className="landing-logo"><ShieldCheck size={22}/></span><span>SHIELD<span className="landing-brand-dot">.</span><small>OPERATIONAL INTELLIGENCE</small></span></Link>
-      <div className="landing-nav-actions"><a href="#capacidades" className="landing-nav-link">Capacidades</a><Link to="/login" className="landing-login">Entrar</Link><Link to="/cadastro" className="landing-nav-cta">Criar acesso <ArrowRight size={15}/></Link></div>
-    </nav>
-    <section className="landing-hero">
-      <div className="landing-copy">
-        <div className="landing-kicker"><span className="landing-pulse"/> CENTRO DE COMANDO DIGITAL</div>
-        <h1>Menos ruído.<br/><span>Mais controle</span> da operação.</h1>
-        <p className="landing-lead">O SHIELD reúne sinais, conexões e incidentes dos seus ativos digitais para você entender o que está acontecendo e agir com prioridade.</p>
-        <div className="landing-hero-actions"><Link to="/cadastro" className="landing-primary">Começar agora <ArrowRight size={17}/></Link><a href="#capacidades" className="landing-secondary">Conhecer a plataforma <ChevronRight size={16}/></a></div>
-        <div className="landing-trust"><span><CheckCircle2 size={15}/> Visão centralizada</span><span><CheckCircle2 size={15}/> Status transparente</span><span><CheckCircle2 size={15}/> Controle por ativo</span></div>
+  return <main className="shield-site">
+    <header className="shield-nav">
+      <Link to="/" className="shield-wordmark"><span className="shield-mark"><Shield size={19}/></span>SHIELD<span className="shield-wordmark-dot">/</span></Link>
+      <nav className="shield-nav-links"><a href="#produto">Produto</a><a href="#recursos">Recursos</a><a href="#como-funciona">Como funciona</a></nav>
+      <div className="shield-nav-actions"><Link to="/login" className="shield-signin">Entrar</Link><Link to="/cadastro" className="shield-nav-cta">Acessar plataforma <ArrowRight size={14}/></Link></div>
+    </header>
+    <section className="shield-hero" id="produto">
+      <div className="shield-hero-copy">
+        <div className="shield-eyebrow"><span/> INTELIGÊNCIA PARA OPERAÇÕES DIGITAIS</div>
+        <h1>Seu tráfego.<br/>Sua operação.<br/><span>Sob controle.</span></h1>
+        <p className="shield-hero-text">Uma central para acompanhar suas contas, identificar o que precisa de atenção e tomar decisões sem ficar pulando entre plataformas.</p>
+        <div className="shield-hero-actions"><Link to="/cadastro" className="shield-btn-primary">Conhecer o SHIELD <ArrowRight size={16}/></Link><Link to="/login" className="shield-btn-quiet">Já tenho acesso <ChevronRight size={15}/></Link></div>
+        <div className="shield-proof"><span><Check size={13}/> Visão centralizada</span><span><Check size={13}/> Alertas operacionais</span><span><Check size={13}/> Feito para escalar</span></div>
       </div>
-      <div className="landing-console" aria-label="Prévia ilustrativa do painel SHIELD">
-        <div className="console-top"><div className="console-brand"><ShieldCheck size={17}/> SHIELD <span>/ OVERVIEW</span></div><span className="console-demo"><i/> PRÉVIA ILUSTRATIVA</span></div>
-        <div className="console-heading"><div><small>RESUMO DA OPERAÇÃO</small><h2>Sinais operacionais</h2></div><span className="console-time">VISÃO CONCEITUAL</span></div>
-        <div className="console-metrics"><div><small>ATIVOS MONITORADOS</small><strong>01 <em>visão</em></strong><span><CircleDot size={12}/> Estrutura central</span></div><div><small>INTEGRAÇÕES</small><strong>Conectáveis</strong><span>Após configuração</span></div><div><small>ALERTAS</small><strong>Prioridade</strong><span>Contexto por ativo</span></div></div>
-        <div className="console-section-title"><Activity size={15}/> CAMADA DE INTELIGÊNCIA <span>PREPARADA PARA INTEGRAÇÕES</span></div>
-        {["Contas e APIs","Monitor de links","Central de alertas"].map((label,i)=><div className="console-row" key={label}><span className={"console-row-icon c"+i}>{i===0?<Signal size={16}/>:i===1?<Zap size={16}/>:<BellRing size={16}/>}</span><span>{label}<small>{["Conexões e permissões","Disponibilidade dos ativos","Eventos que exigem ação"][i]}</small></span><em>CONFIGURÁVEL</em><ChevronRight size={15}/></div>)}
-        <div className="console-note"><span className="console-note-dot"/> Esta prévia é ilustrativa. Métricas reais aparecem após conectar e configurar as fontes de dados.</div>
+      <div className="shield-visual">
+        <div className="shield-visual-top"><div><span className="shield-live-dot"/> <span>SHIELD / COMMAND CENTER</span></div><span className="shield-preview-tag">PRÉVIA DO PRODUTO</span></div>
+        <div className="shield-dash-head"><div><span className="shield-mini-label">VISÃO GERAL</span><h2>Bom dia, operador.</h2><p>Acompanhe os sinais da sua operação.</p></div><button type="button" className="shield-date-pill"><Command size={12}/> DEMONSTRAÇÃO</button></div>
+        <div className="shield-stat-grid"><div className="shield-stat"><span>CONTAS</span><strong>—</strong><small>Aguardando conexão</small></div><div className="shield-stat"><span>INVESTIMENTO</span><strong>R$ —</strong><small>Sem dados conectados</small></div><div className="shield-stat"><span>ALERTAS</span><strong>—</strong><small>Monitoramento pendente</small></div></div>
+        <div className="shield-chart-card"><div className="shield-chart-title"><div><span className="shield-mini-label">ATIVIDADE DA OPERAÇÃO</span><h3>Desempenho ao longo do tempo</h3></div><span className="shield-empty-chip">SEM DADOS REAIS</span></div><div className="shield-chart"><div className="shield-chart-grid"><i/><i/><i/><i/></div><svg viewBox="0 0 560 125" preserveAspectRatio="none" aria-label="Gráfico ilustrativo sem dados reais"><defs><linearGradient id="shieldFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#8b5cf6" stopOpacity=".25"/><stop offset="100%" stopColor="#8b5cf6" stopOpacity="0"/></linearGradient></defs><path d="M0 105 C35 98 44 80 70 86 S112 100 140 66 S180 75 205 60 S250 82 275 45 S320 55 350 36 S390 54 415 29 S455 50 480 24 S525 36 560 8 L560 125 L0 125Z" fill="url(#shieldFill)"/><path d="M0 105 C35 98 44 80 70 86 S112 100 140 66 S180 75 205 60 S250 82 275 45 S320 55 350 36 S390 54 415 29 S455 50 480 24 S525 36 560 8" fill="none" stroke="#a78bfa" strokeWidth="2" strokeLinecap="round"/></svg><div className="shield-chart-empty">Conecte uma fonte de dados para visualizar suas métricas</div></div><div className="shield-chart-axis"><span>SEG</span><span>TER</span><span>QUA</span><span>QUI</span><span>SEX</span><span>SÁB</span><span>DOM</span></div></div>
+        <div className="shield-bottom-widgets"><div className="shield-widget"><span className="shield-widget-icon purple"><Bell size={15}/></span><div><strong>Alertas inteligentes</strong><small>Eventos que merecem atenção</small></div><ChevronRight size={14}/></div><div className="shield-widget"><span className="shield-widget-icon green"><TrendingUp size={15}/></span><div><strong>Visão de desempenho</strong><small>Indicadores em um só lugar</small></div><ChevronRight size={14}/></div></div>
+        <div className="shield-preview-foot"><LockKeyhole size={12}/> Prévia visual — os dados serão exibidos após configurar integrações.</div>
       </div>
+      <div className="shield-orbit shield-orbit-one"/><div className="shield-orbit shield-orbit-two"/>
     </section>
-    <section className="landing-capabilities" id="capacidades"><div className="landing-section-heading"><div className="landing-kicker">PROJETADO PARA AGIR</div><h2>Uma operação. Sinais claros.</h2><p>O SHIELD está sendo construído para sair de ferramentas isoladas e dar contexto aos ativos que sustentam sua operação.</p></div><div className="landing-feature-grid">{capabilities.map(({icon:Icon,title,description},i)=><article className="landing-feature" key={title}><div className="landing-feature-icon"><Icon size={20}/></div><small>0{i+1} / CAPACIDADE</small><h3>{title}</h3><p>{description}</p></article>)}</div></section>
-    <section className="landing-bottom-cta"><div><div className="landing-kicker">SHIELD INTELLIGENCE</div><h2>Assuma o controle do que importa.</h2><p>Crie seu acesso e acompanhe a evolução da plataforma.</p></div><Link to="/cadastro" className="landing-primary">Criar meu acesso <ArrowRight size={16}/></Link></section>
-    <footer className="landing-footer"><Link to="/" className="landing-footer-brand"><ShieldCheck size={16}/> SHIELD</Link><span>Inteligência operacional para ativos digitais.</span><div><Link to="/login">Entrar</Link><Link to="/cadastro">Cadastro</Link></div></footer>
+    <section className="shield-marquee"><span>MENOS ABAS ABERTAS</span><i/> <span>MAIS CONTEXTO</span><i/> <span>DECISÕES MAIS RÁPIDAS</span><i/> <span>OPERAÇÃO EM UM LUGAR</span></section>
+    <section className="shield-features" id="recursos"><div className="shield-section-top"><div><div className="shield-eyebrow"><span/> UM CENTRO DE COMANDO</div><h2>Enxergue o todo.<br/><span>Atue no detalhe.</span></h2></div><p>O SHIELD está sendo construído para transformar informações espalhadas em uma visão operacional clara — sem inventar métricas nem esconder o que ainda não foi conectado.</p></div><div className="shield-feature-grid"><article><span className="shield-feature-icon"><Layers3 size={20}/></span><small>01 / CENTRALIZAÇÃO</small><h3>Contas em contexto</h3><p>Organize seus ativos e acompanhe o estado das conexões em uma visão única.</p><ArrowDownRight size={18}/></article><article><span className="shield-feature-icon"><Zap size={20}/></span><small>02 / MONITORAMENTO</small><h3>Alertas que importam</h3><p>Prepare uma rotina para destacar falhas, pendências e eventos que pedem ação.</p><ArrowDownRight size={18}/></article><article><span className="shield-feature-icon"><BarChart3 size={20}/></span><small>03 / INTELIGÊNCIA</small><h3>Dados para decidir</h3><p>Estruture o caminho para cruzar investimento, desempenho e saúde da operação.</p><ArrowDownRight size={18}/></article></div></section>
+    <section className="shield-how" id="como-funciona"><div className="shield-how-icon"><Sparkles size={23}/></div><div><div className="shield-eyebrow"><span/> SIMPLES NA ORIGEM</div><h2>Conecte. Entenda. <span>Decida.</span></h2><p>Entre no painel, configure suas fontes de dados e acompanhe a operação. As integrações reais são habilitadas à medida que cada conector é configurado.</p></div><Link to="/cadastro" className="shield-btn-primary">Criar meu acesso <ArrowRight size={16}/></Link></section>
+    <footer className="shield-footer"><Link to="/" className="shield-wordmark"><span className="shield-mark"><Shield size={16}/></span>SHIELD<span className="shield-wordmark-dot">/</span></Link><span>INTELLIGENCE FOR DIGITAL OPERATIONS</span><div><Link to="/login">Entrar</Link><Link to="/cadastro">Criar acesso</Link></div></footer>
   </main>;
 }
