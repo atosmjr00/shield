@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 @import "tailwindcss" source(none);
 @source "../src";
 @import "tw-animate-css";
@@ -869,7 +870,6 @@
 
 
 /* SHIELD monochrome refresh — graphite, white, violet accents */
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 :root{--shield-bg:#08080b;--shield-panel:#0e0e13;--shield-panel-2:#121218;--shield-line:#25242d;--shield-text:#f5f5f7;--shield-muted:#92919e;--shield-violet:#a78bfa;--shield-violet-bright:#c4b5fd}
 .shield-app.shield-v3,.shield-v3{font-family:'DM Sans',sans-serif!important;background:#08080b!important;color:#f5f5f7!important}
 .shield-v3 h1,.shield-v3 h2,.shield-v3 h3,.shield-v3 .shield-wordmark{font-family:'Space Grotesk','DM Sans',sans-serif!important}
