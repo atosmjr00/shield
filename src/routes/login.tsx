@@ -1,0 +1,25 @@
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { FormEvent, useState } from "react";
+import { ArrowLeft, ArrowRight, ShieldCheck } from "lucide-react";
+import { getSupabaseClient } from "@/lib/supabase";
+
+export const Route = createFileRoute("/login")({ head: () => ({ meta: [{ title: "Entrar — SHIELD" }] }), component: LoginPage });
+
+function LoginPage() {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [busy, setBusy] = useState(false);
+  const [message, setMessage] = useState("");
+  async function submit(e: FormEvent) {
+    e.preventDefault(); setMessage("");
+    const supabase = getSupabaseClient();
+    if (!supabase) { setMessage("Autenticação ainda não configurada. Adicione as variáveis do Supabase no arquivo .env e reinicie o servidor."); return; }
+    setBusy(true);
+    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    setBusy(false);
+    if (error) { setMessage(error.message); return; }
+    await navigate({ to: "/painel" });
+  }
+  return <main className="auth-shell"><Link to="/" className="auth-back"><ArrowLeft size={15}/> Voltar ao início</Link><section className="auth-card"><Link to="/" className="landing-brand auth-brand"><span className="landing-logo"><ShieldCheck size={22}/></span><span>SHIELD<span className="landing-brand-dot">.</span><small>OPERATIONAL INTELLIGENCE</small></span></Link><div className="auth-kicker">ACESSO À PLATAFORMA</div><h1>Bem-vindo de volta.</h1><p className="auth-description">Entre para acessar seu centro de comando.</p><form onSubmit={submit} className="auth-form"><label>E-mail<input type="email" autoComplete="email" required value={email} onChange={e=>setEmail(e.target.value)} placeholder="voce@empresa.com"/></label><label>Senha<input type="password" autoComplete="current-password" required minLength={6} value={password} onChange={e=>setPassword(e.target.value)} placeholder="Sua senha"/></label>{message&&<p className="auth-message" role="alert">{message}</p>}<button className="landing-primary auth-submit" type="submit" disabled={busy}>{busy?"Entrando...":"Entrar no SHIELD"} <ArrowRight size={16}/></button></form><p className="auth-switch">Ainda não tem acesso? <Link to="/cadastro">Criar conta</Link></p><p className="auth-footnote">O login só funciona depois de configurar um projeto Supabase.</p></section></main>;
+}
