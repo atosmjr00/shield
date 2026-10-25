@@ -9,7 +9,7 @@ import {
   Scripts,
   type ErrorComponentProps,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -17,6 +17,7 @@ import { AppShell } from "@/components/app/AppShell";
 import { FiltersProvider } from "@/lib/filters";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/sonner";
+import { getSupabaseClient } from "@/lib/supabase";
 
 function NotFoundComponent() {
   return (
@@ -104,12 +105,47 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const pathname = useRouterState({ select: (state) => state.location.pathname });
   const isPublicPage = pathname === "/" || pathname === "/login" || pathname === "/cadastro";
+  const router = useRouter();
+  const [accessState, setAccessState] = useState<"checking" | "authenticated" | "demo" | "public" | "unauthenticated">("checking");
+
+  useEffect(() => {
+    if (isPublicPage) {
+      setAccessState("public");
+      return;
+    }
+    const supabase = getSupabaseClient();
+    if (!supabase) {
+      setAccessState("demo");
+      return;
+    }
+    let active = true;
+    void supabase.auth.getSession().then(({ data }) => {
+      if (!active) return;
+      if (data.session) setAccessState("authenticated");
+      else {
+        setAccessState("unauthenticated");
+        void router.navigate({ to: "/login" });
+      }
+    });
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      if (!active) return;
+      if (session) setAccessState("authenticated");
+      else {
+        setAccessState("unauthenticated");
+        void router.navigate({ to: "/login" });
+      }
+    });
+    return () => {
+      active = false;
+      subscription.unsubscribe();
+    };
+  }, [isPublicPage, pathname, router]);
 
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider delayDuration={150}>
         <FiltersProvider>
-          {isPublicPage ? <Outlet /> : <AppShell><Outlet /></AppShell>}
+          {isPublicPage ? <Outlet /> : accessState === "demo" || accessState === "authenticated" ? <AppShell><Outlet /></AppShell> : <div className="flex min-h-screen items-center justify-center bg-background text-sm text-muted-foreground">Validando acesso ao SHIELD…</div>}
         </FiltersProvider>
         <Toaster theme="dark" />
       </TooltipProvider>
