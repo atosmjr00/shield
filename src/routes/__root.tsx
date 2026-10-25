@@ -145,7 +145,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider delayDuration={150}>
         <FiltersProvider>
-          {isPublicPage ? <Outlet /> : accessState === "demo" || accessState === "authenticated" ? <AppShell><Outlet /></AppShell> : <div className="flex min-h-screen items-center justify-center bg-background text-sm text-muted-foreground">Validando acesso ao SHIELD…</div>}
+          {isPublicPage ? <Outlet /> : accessState === "demo" || accessState === "authenticated" ? pathname === "/painel" ? <Outlet /> : <AppShell><Outlet /></AppShell> : <div className="flex min-h-screen items-center justify-center bg-background text-sm text-muted-foreground">Validando acesso ao SHIELD…</div>}
         </FiltersProvider>
         <Toaster theme="dark" />
       </TooltipProvider>
