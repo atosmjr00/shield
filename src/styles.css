@@ -828,3 +828,41 @@
 @media(max-width:760px){.shield-nav{height:68px;padding:0 18px;gap:12px}.shield-nav-links{display:none}.shield-nav-actions{gap:13px;margin-left:auto}.shield-nav-cta{padding:10px 11px;font-size:9px}.shield-hero{grid-template-columns:1fr;padding:58px 19px 62px;gap:35px}.shield-hero h1{font-size:49px}.shield-hero-text{font-size:12px}.shield-visual{padding:12px}.shield-preview-layout{grid-template-columns:110px minmax(0,1fr)}.shield-preview-main{padding-left:11px}.shield-preview-sidebar{font-size:7px}.shield-stat-grid{gap:5px}.shield-stat{padding:8px 6px}.shield-stat strong{font-size:16px}.shield-stat small{font-size:6px}.shield-preview-welcome h3{font-size:12px}.shield-chart{height:105px}.shield-marquee{gap:11px;padding:15px 12px;font-size:6px}.shield-features{padding:63px 19px}.shield-section-top{grid-template-columns:1fr;gap:17px}.shield-section-top h2{font-size:38px}.shield-feature-grid{grid-template-columns:1fr;margin-top:26px}.shield-feature-grid article{min-height:0;padding:20px}.shield-feature-grid article>small{margin-top:16px}.shield-security{margin:0 19px 55px;padding:22px;grid-template-columns:auto 1fr;gap:15px}.shield-security h2{font-size:18px}.shield-security-points{grid-column:1/-1;flex-direction:row;flex-wrap:wrap}.shield-how{margin:0 19px 55px;padding:22px;align-items:flex-start;flex-wrap:wrap;gap:15px}.shield-how>div:nth-child(2){min-width:0;flex:1}.shield-how h2{font-size:22px}.shield-how>.shield-btn-primary{width:100%}.shield-footer{padding:21px 19px;flex-wrap:wrap}.shield-footer>span{order:3;width:100%}.shield-footer>div{gap:12px}
  .shield-app.shield-v3{display:block}.shield-v3 .shield-sidebar{position:fixed;left:0;top:0;bottom:0;width:270px;height:100dvh;transform:translateX(-105%);transition:transform .2s ease;box-shadow:none}.shield-v3 .shield-sidebar.mobile-open{transform:translateX(0);box-shadow:20px 0 80px #0009}.shield-v3 .shield-mobile-scrim{position:fixed;inset:0;z-index:19;display:block;border:0;background:#05030abf}.shield-v3 .mobile-menu,.shield-v3 .mobile-close{display:grid}.shield-v3 .mobile-close{margin-left:auto}.shield-v3 .shield-topbar{height:60px;padding:0 16px}.shield-v3 .breadcrumbs{font-size:9px}.shield-v3 .topbar-right{gap:9px}.shield-v3 .environment-pill{font-size:6px;padding:6px}.shield-v3 .shield-content{padding:24px 16px}.shield-v3 .page-heading{align-items:flex-start;flex-direction:column;gap:15px}.shield-v3 .page-heading h1{font-size:28px}.shield-v3 .page-heading .primary-button{width:100%}.shield-v3 .welcome-panel{padding:23px 19px}.shield-v3 .welcome-emblem{display:none}.shield-v3 .welcome-panel h2{font-size:25px}.shield-v3 .metrics-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.shield-v3 .metric-card{padding:13px}.shield-v3 .metric-value{font-size:24px}.shield-v3 .dashboard-columns{grid-template-columns:1fr}.shield-v3 .account-toolbar{align-items:stretch;flex-direction:column}.shield-v3 .account-filters{align-items:stretch;flex-direction:column}.shield-v3 .search-field{min-width:0}.shield-v3 .asset-grid,.shield-v3 .provider-grid{grid-template-columns:1fr}.shield-v3 .integration-intro{align-items:flex-start;flex-direction:column}.shield-v3 .table-bottom{flex-direction:column;gap:5px}.shield-v3 .shield-page-footer{align-items:flex-start;flex-direction:column}.shield-v3 .settings-summary{grid-template-columns:1fr}.shield-v3 .settings-panel .workspace-settings-form{grid-template-columns:1fr}.shield-v3 .workspace-settings-form>p{grid-column:auto}.shield-v3 .shield-modal-backdrop{padding:12px}.shield-v3 .modal-header,.shield-v3 .asset-form{padding:17px}.shield-v3 .connect-status-block{padding:17px}.shield-v3 .connect-checklist{padding:0 17px 17px}.shield-v3 .shield-modal>.modal-actions{padding:0 17px 17px}.shield-v3 .shield-protection-card strong{font-size:9px}}
 @media(max-width:390px){.shield-preview-sidebar{display:none}.shield-preview-layout{grid-template-columns:1fr}.shield-preview-main{padding-left:0}.shield-v3 .topbar-avatar{display:none}.shield-v3 .environment-pill{max-width:128px;overflow:hidden;text-overflow:ellipsis}.shield-v3 .welcome-actions .primary-button,.shield-v3 .welcome-actions .secondary-button{width:100%}.shield-v3 .account-row-right{display:none}}
+
+/* Dashboard refinement: less hero, more useful workspace above the fold */
+.shield-v3 .shield-content{padding-top:29px}
+.shield-v3 .page-heading{margin-bottom:20px}
+.shield-v3 .page-heading h1{font-size:clamp(29px,3vw,36px);letter-spacing:-.045em}
+.shield-v3 .page-heading p{font-size:12px}
+.shield-v3 .dashboard-intro{display:flex;align-items:center;gap:17px;padding:19px 22px;margin-bottom:15px;border:1px solid #30273f;border-radius:10px;background:linear-gradient(100deg,#171220,#100e17 74%);min-height:106px}
+.shield-v3 .dashboard-intro-icon{display:grid;place-items:center;flex-shrink:0;width:43px;height:43px;border:1px solid #55406f;border-radius:10px;background:#a78bfa12;color:#c4b5fd}
+.shield-v3 .dashboard-intro-copy{flex:1;min-width:0}
+.shield-v3 .dashboard-intro-copy .intelligence-kicker{font-size:8px}
+.shield-v3 .dashboard-intro-copy h2{margin:6px 0 5px;font-size:17px;font-weight:800;letter-spacing:-.035em;color:#f6f1ff}
+.shield-v3 .dashboard-intro-copy p{margin:0;color:#a69cb6;font-size:10px;line-height:1.65}
+.shield-v3 .dashboard-intro>.secondary-button{flex-shrink:0}
+.shield-v3 .metrics-grid{gap:11px;margin-bottom:14px}
+.shield-v3 .metric-card{padding:15px 16px 13px}
+.shield-v3 .metric-top{font-size:10px}
+.shield-v3 .metric-value{font-size:27px;margin:10px 0 5px}
+.shield-v3 .metric-trend{font-size:9px}
+.shield-v3 .empty-onboarding{padding:21px 22px;gap:15px}
+.shield-v3 .empty-onboarding h2{font-size:17px}
+.shield-v3 .empty-onboarding p{font-size:11px;max-width:800px}
+.shield-v3 .intelligence-kicker{font-size:8px;letter-spacing:.12em}
+.shield-v3 .shield-nav-item{font-size:11px;padding:12px 10px}
+.shield-v3 .shield-nav-label{font-size:8px}
+.shield-v3 .workspace-copy strong,.shield-v3 .profile-copy strong{font-size:11px}
+.shield-v3 .workspace-copy span,.shield-v3 .profile-copy span{font-size:9px}
+.shield-v3 .breadcrumbs{font-size:11px}
+.shield-v3 .environment-pill{font-size:8px}
+.shield-v3 .shield-brand-sub{font-size:8px}
+.shield-v3 .shield-page-footer{font-size:9px}
+@media(max-width:760px){
+ .shield-v3 .dashboard-intro{align-items:flex-start;flex-wrap:wrap;padding:17px}
+ .shield-v3 .dashboard-intro-copy{flex:1 1 calc(100% - 62px)}
+ .shield-v3 .dashboard-intro>.secondary-button{width:100%}
+ .shield-v3 .metrics-grid{gap:8px}
+ .shield-v3 .metric-top{font-size:9px}
+ .shield-v3 .metric-trend{font-size:8px}
+}
