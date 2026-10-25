@@ -930,3 +930,10 @@
 .shield-v3 .empty-onboarding{animation:shield-rise .48s .08s both}
 .shield-v3 .shield-mark{animation:shield-glow 5s ease-in-out infinite}
 @media(prefers-reduced-motion:reduce){.shield-v3 *, .shield-v3 *:before,.shield-v3 *:after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+
+/* Google OAuth button */
+.auth-google-button{display:flex;align-items:center;justify-content:center;gap:11px;width:100%;min-height:46px;margin:0 0 18px;padding:0 16px;border:1px solid #33313b;border-radius:8px;background:#f7f7f8;color:#17171b;font:600 13px 'DM Sans',sans-serif;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease,background .18s ease}
+.auth-google-button svg{width:17px;height:17px;flex-shrink:0}
+.auth-google-button:hover{background:#fff;transform:translateY(-1px);box-shadow:0 5px 18px #0003}
+.auth-google-button:disabled{opacity:.55;cursor:wait;transform:none;box-shadow:none}
