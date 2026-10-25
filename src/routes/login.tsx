@@ -11,8 +11,7 @@ function LoginPage() {
   const [password, setPassword] = useState("");
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState("");
-  const [demoAvailable, setDemoAvailable] = useState(false);
-  useState(() => { setDemoAvailable(!getSupabaseClient()); return null; });
+  const [demoAvailable] = useState(() => !getSupabaseClient());
   async function enterDemo() { setMessage(""); await navigate({ to: "/painel" }); }
   async function submit(e: FormEvent) {
     e.preventDefault(); setMessage("");
