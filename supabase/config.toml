@@ -1,0 +1,7 @@
+project_id = "shield"
+
+[functions.meta-oauth-start]
+verify_jwt = true
+
+[functions.meta-oauth-callback]
+verify_jwt = false
