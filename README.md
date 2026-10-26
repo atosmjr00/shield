@@ -48,3 +48,21 @@ A autenticação do SHIELD pode ser ativada com as credenciais do Supabase. As i
 - React + TypeScript
 - Tailwind CSS
 - Supabase Auth (configuração necessária)
+
+
+## Meta Ads OAuth (fase inicial)
+
+A conexão Meta Ads usa Supabase Edge Functions. O token é armazenado em `meta_connections`, tabela protegida por RLS sem políticas para clientes de navegador. Não coloque o App Secret da Meta em variáveis `VITE_*`.
+
+1. Execute no Supabase SQL Editor a migração `supabase/migrations/20261025001000_meta_oauth.sql`.
+2. Configure os secrets das Edge Functions no projeto Supabase:
+   - `META_APP_ID`: App ID do aplicativo Meta.
+   - `META_APP_SECRET`: App Secret (somente servidor).
+   - `META_REDIRECT_URI`: URL exata da função callback, no formato `https://SEU_PROJETO.supabase.co/functions/v1/meta-oauth-callback`.
+   - `META_GRAPH_API_VERSION`: versão da Graph API habilitada para o aplicativo (ex.: `vXX.0`, substitua pela versão atualmente suportada no Meta for Developers).
+   - `SHIELD_APP_URL`: URL de retorno do app, por exemplo `http://localhost:8080` durante desenvolvimento.
+3. No painel Meta for Developers, adicione o valor de `META_REDIRECT_URI` em **Valid OAuth Redirect URIs** do produto Login e habilite as permissões necessárias para Marketing API (`ads_read`, `read_insights`) conforme a análise de acesso do aplicativo.
+4. Implante as funções `meta-oauth-start` e `meta-oauth-callback`. A função de callback precisa aceitar chamadas sem JWT, pois a Meta redireciona o navegador; o `supabase/config.toml` configura isso.
+5. Teste em `http://localhost:8080`. Se estiver usando `127.0.0.1`, configure essa origem separadamente e ajuste `SHIELD_APP_URL` para a origem usada.
+
+Esta etapa implementa o início do OAuth, validação de state de uso único, troca do código no servidor e armazenamento protegido do token. **Ainda não importa contas de anúncios, campanhas ou métricas**; isso é a próxima etapa, após confirmar a autorização e os requisitos de acesso da Meta.
